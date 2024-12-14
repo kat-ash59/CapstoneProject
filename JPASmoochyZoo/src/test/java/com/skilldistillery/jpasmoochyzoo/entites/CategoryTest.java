@@ -1,7 +1,7 @@
 package com.skilldistillery.jpasmoochyzoo.entites;
 
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -9,17 +9,17 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.skilldistillery.jpasmoochyzoo.entities.Animal;
+import com.skilldistillery.jpasmoochyzoo.entities.Category;
+import com.skilldistillery.jpasmoochyzoo.entities.User;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
-class AnimalTest {
+public class CategoryTest {
 	private static EntityManagerFactory emf;
-	private EntityManager em;
-	// entity under test
-	private Animal animal = null;
+	private static EntityManager em;
+	private Category category;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -34,20 +34,22 @@ class AnimalTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		animal = em.find(Animal.class, 1);
+
+		category = em.find(Category.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		animal = null;
+		category = null;
 	}
 
 	@Test
-	void test_User_basic_mappings() {
-		assertNotNull(animal);
-		assertEquals("Fred", animal.getName());
-		assertEquals("2014",animal.getBirthday().getYear());
+	void test_CategoryTable_basic_mappings() {
+		assertNotNull(category);
+		assertEquals(1, category.getId());
+		assertEquals("carnivore", category.getName());
+		
+		
 	}
-
 }

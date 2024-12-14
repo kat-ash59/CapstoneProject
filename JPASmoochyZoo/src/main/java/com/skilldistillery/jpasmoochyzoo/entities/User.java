@@ -2,6 +2,7 @@ package com.skilldistillery.jpasmoochyzoo.entities;
 
 import java.util.Objects;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,6 +10,7 @@ import jakarta.persistence.Id;
 
 @Entity
 public class User {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -19,7 +21,13 @@ public class User {
 
 	private Boolean enabled;
 
-	private String role;
+	@Column(name = "about_me")
+	private String aboutMe;
+
+	@Column(name = "privacy_check")
+	private Boolean privacyCheck;
+
+	private String email;
 
 	public User() {
 	}
@@ -56,18 +64,34 @@ public class User {
 		this.enabled = enabled;
 	}
 
-	public String getRole() {
-		return role;
+	public String getAboutMe() {
+		return aboutMe;
 	}
 
-	public void setRole(String role) {
-		this.role = role;
+	public void setAboutMe(String aboutMe) {
+		this.aboutMe = aboutMe;
+	}
+
+	public Boolean getPrivacyCheck() {
+		return privacyCheck;
+	}
+
+	public void setPrivacyCheck(Boolean privacyCheck) {
+		this.privacyCheck = privacyCheck;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled
-				+ ", role=" + role + "]";
+				+ ", aboutMe=" + aboutMe + ", privacyCheck=" + privacyCheck + ", email=" + email + "]";
 	}
 
 	@Override

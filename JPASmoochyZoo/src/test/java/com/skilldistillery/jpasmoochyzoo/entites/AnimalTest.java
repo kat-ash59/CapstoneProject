@@ -1,5 +1,6 @@
 package com.skilldistillery.jpasmoochyzoo.entites;
 
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.AfterAll;
@@ -8,17 +9,17 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.skilldistillery.jpasmoochyzoo.entities.User;
+import com.skilldistillery.jpasmoochyzoo.entities.Animal;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
-class UserTest {
+class AnimalTest {
 	private static EntityManagerFactory emf;
 	private EntityManager em;
 	// entity under test
-	private User user = null;
+	private Animal animal = null;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -33,19 +34,19 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		user = em.find(User.class, 1);
+		animal = em.find(Animal.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		user = null;
+		animal = null;
 	}
 
 	@Test
 	void test_User_basic_mappings() {
-		assertNotNull(user);
-		assertEquals("username", user.getUsername());
+		assertNotNull(animal);
+		assertEquals("Fred", animal.getName());
 	}
 
 }

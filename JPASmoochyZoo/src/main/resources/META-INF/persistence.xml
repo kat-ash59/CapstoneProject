@@ -11,6 +11,8 @@
      <class>com.skilldistillery.jpasmoochyzoo.entities.SuggestedName</class>
 	 <class>com.skilldistillery.jpasmoochyzoo.entities.Zoo</class>
 	 <class>com.skilldistillery.jpasmoochyzoo.entities.Role</class>
+	 <class>com.skilldistillery.jpasmoochyzoo.entities.Pregnancy</class>
+	 <class>com.skilldistillery.jpasmoochyzoo.entities.Address</class>
 	
     <properties>
       <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/smoochyzoo" />

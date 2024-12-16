@@ -49,7 +49,7 @@ public class AnimalDAOImpl implements AnimalDAO
 	public Animal addAnimal(Animal animal)
 	{
 		
-		animal.setIsActive(1);
+		animal.setIsActive(true);
 		
 		em.persist(animal);
 
@@ -98,13 +98,13 @@ public class AnimalDAOImpl implements AnimalDAO
 			updatedAnimal.setDad(animal.getDad());
 		}
 		
-		if (animal.getIsActive() == 1)
+		if (animal.getIsActive() == true)
 		{
-			updatedAnimal.setIsActive(1);
+			updatedAnimal.setIsActive(true);
 		}
 		else
 		{
-			updatedAnimal.setIsActive(0);
+			updatedAnimal.setIsActive(false);
 		}
 		
 		em.persist(updatedAnimal);
@@ -127,7 +127,7 @@ public class AnimalDAOImpl implements AnimalDAO
 		if (animal != null)
 		{
 
-			animal.setIsActive(0);
+			animal.setIsActive(false);
 			
 			em.persist(animal);
 			

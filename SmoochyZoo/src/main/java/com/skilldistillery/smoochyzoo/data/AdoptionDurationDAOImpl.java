@@ -49,7 +49,7 @@ public class AdoptionDurationDAOImpl implements AdoptionDurationDAO
 	@Override
 	public AdoptionDuration addAdoptionDuration(AdoptionDuration adoptionDuration)
 	{
-		adoptionDuration.setIsActive(1);
+		adoptionDuration.setIsActive(true);
 		
 		em.persist(adoptionDuration);
 
@@ -78,13 +78,13 @@ public class AdoptionDurationDAOImpl implements AdoptionDurationDAO
 				updatedAdoptionDuration.setDuration(adoptionDuration.getDuration());
 		}
 		
-		if (adoptionDuration.getIsActive() == 1)
+		if (adoptionDuration.getIsActive() == true)
 		{
-			updatedAdoptionDuration.setIsActive(1);
+			updatedAdoptionDuration.setIsActive(true);
 		}
 		else
 		{
-			updatedAdoptionDuration.setIsActive(0);
+			updatedAdoptionDuration.setIsActive(false);
 		}
 		
 		
@@ -108,7 +108,7 @@ public class AdoptionDurationDAOImpl implements AdoptionDurationDAO
 		
 		if (adoptionDuration != null)
 		{			
-			adoptionDuration.setIsActive(0);
+			adoptionDuration.setIsActive(false);
 			
 			em.persist(adoptionDuration);
 			

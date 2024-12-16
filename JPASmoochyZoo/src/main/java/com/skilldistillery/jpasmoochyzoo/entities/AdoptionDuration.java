@@ -19,7 +19,7 @@ public class AdoptionDuration
 	
 	private String duration;
 	
-	private int isActive = 0;
+	private boolean isActive = false;
 
 	public int getId() {
 		return id;
@@ -38,15 +38,16 @@ public class AdoptionDuration
 	}
 
 	
-	public int getIsActive() {
+		
+	
+	public boolean getIsActive() {
 		return isActive;
 	}
 
-	public void setIsActive(int isActive) {
+	public void setIsActive(boolean isActive) {
 		this.isActive = isActive;
 	}
-	
-	
+
 	@Override
 	public String toString() {
 		return "AdoptionDuration [id=" + id + ", duration=" + duration + ", isActive=" + isActive + "]";

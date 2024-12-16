@@ -27,7 +27,9 @@ public class Animal
 	
 	private LocalDateTime birthday;
 	
-	private int isActive = 0;
+	private String gender;
+	
+	private boolean isActive = false;
 	
 
 	@ManyToOne
@@ -82,6 +84,26 @@ public class Animal
 	}
 
 
+	public String getGender() {
+		return gender;
+	}
+
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+
+	public boolean getIsActive() {
+		return isActive;
+	}
+
+
+	public void setIsActive(boolean isActive) {
+		this.isActive = isActive;
+	}
+
+
 	public Animal getMom() {
 		return mom;
 	}
@@ -123,23 +145,11 @@ public class Animal
 	}
 
 	
-	public int getIsActive() {
-		return isActive;
-	}
-
-
-	public void setIsActive(int isActive) {
-		this.isActive = isActive;
-	}
-
-
-	
-
 
 	@Override
 	public String toString() {
-		return "Animal [id=" + id + ", name=" + name + ", birthday=" + birthday + ", isActive=" + isActive + ", mom="
-				+ mom + ", dad=" + dad + ", category=" + category + ", species=" + species + "]";
+		return "Animal [id=" + id + ", name=" + name + ", birthday=" + birthday + ", gender=" + gender + ", isActive="
+				+ isActive + ", mom=" + mom + ", dad=" + dad + ", category=" + category + ", species=" + species + "]";
 	}
 
 

@@ -18,7 +18,7 @@ public class Species
 	
 	private String description;
 	
-	private int isActive = 0;
+	private boolean isActive = false;
 
 	public int getId() {
 		return id;
@@ -46,11 +46,11 @@ public class Species
 
 	
 
-	public int getIsActive() {
+	public boolean getIsActive() {
 		return isActive;
 	}
 
-	public void setIsActive(int isActive) {
+	public void setIsActive(boolean isActive) {
 		this.isActive = isActive;
 	}
 

@@ -48,7 +48,7 @@ public class CategoryDAOImpl implements CategoryDAO
 	@Override
 	public Category addCategory(Category category)
 	{
-		category.setIsActive(1);
+		category.setIsActive(true);
 		em.persist(category);
 
 
@@ -81,13 +81,13 @@ public class CategoryDAOImpl implements CategoryDAO
 				updatedCategory.setName(category.getDescription());
 		}
 		
-		if (category.getIsActive() == 1)
+		if (category.getIsActive() == true)
 		{
-			updatedCategory.setIsActive(1);
+			updatedCategory.setIsActive(true);
 		}
 		else
 		{
-			updatedCategory.setIsActive(0);
+			updatedCategory.setIsActive(false);
 		}
 		
 		em.persist(updatedCategory);
@@ -111,7 +111,7 @@ public class CategoryDAOImpl implements CategoryDAO
 		if (category != null)
 		{
 			
-			category.setIsActive(0);
+			category.setIsActive(false);
 			em.persist(category);
 			
 			rowsDeleted = 1;

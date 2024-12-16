@@ -48,7 +48,7 @@ public class SuggestedNameDAOImpl implements SuggestedNameDAO
 	@Override
 	public SuggestedName addSuggestedName(SuggestedName suggestedName)
 	{
-		suggestedName.setIsActive(1);
+		suggestedName.setIsActive(true);
 		em.persist(suggestedName);
 
 
@@ -76,13 +76,13 @@ public class SuggestedNameDAOImpl implements SuggestedNameDAO
 				updatedSuggestedName.setName(suggestedName.getName());
 		}
 		
-		if (suggestedName.getIsActive() == 1)
+		if (suggestedName.getIsActive() == true)
 		{
-			updatedSuggestedName.setIsActive(1);
+			updatedSuggestedName.setIsActive(true);
 		}
 		else
 		{
-			updatedSuggestedName.setIsActive(0);
+			updatedSuggestedName.setIsActive(false);
 		}
 		
 		em.persist(updatedSuggestedName);
@@ -103,7 +103,7 @@ public class SuggestedNameDAOImpl implements SuggestedNameDAO
 		
 		if (suggestedName != null)
 		{			
-			suggestedName.setIsActive(0);
+			suggestedName.setIsActive(false);
 			em.persist(suggestedName);
 			
 			rowsDeleted = 1;

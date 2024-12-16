@@ -18,6 +18,8 @@ public class AdoptionDuration
 	private int id;
 	
 	private String duration;
+	
+	private int isActive = 0;
 
 	public int getId() {
 		return id;
@@ -35,9 +37,19 @@ public class AdoptionDuration
 		this.duration = duration;
 	}
 
+	
+	public int getIsActive() {
+		return isActive;
+	}
+
+	public void setIsActive(int isActive) {
+		this.isActive = isActive;
+	}
+	
+	
 	@Override
 	public String toString() {
-		return "AdoptionDuration [id=" + id + ", duration=" + duration + "]";
+		return "AdoptionDuration [id=" + id + ", duration=" + duration + ", isActive=" + isActive + "]";
 	}
 
 	@Override

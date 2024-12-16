@@ -10,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 import com.skilldistillery.jpasmoochyzoo.entities.*;
@@ -26,6 +27,8 @@ public class Animal
 	
 	private LocalDateTime birthday;
 	
+	private int isActive = 0;
+	
 
 	@ManyToOne
 	@JoinColumn(name="mom_id")
@@ -36,6 +39,13 @@ public class Animal
 	@JoinColumn(name="dad_id")
 	private Animal dad;
 
+	@OneToOne
+	@JoinColumn(name="category_id")
+	private Category category;
+	
+	@OneToOne
+	@JoinColumn(name="species_id")
+	private Species species;
 	
 	private void Animal()
 	{
@@ -91,10 +101,45 @@ public class Animal
 		this.dad = dad;
 	}
 
+	
+
+	public Category getCategory() {
+		return category;
+	}
+
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	
+	public Species getSpecies() {
+		return species;
+	}
+
+
+	public void setSpecies(Species species) {
+		this.species = species;
+	}
+
+	
+	public int getIsActive() {
+		return isActive;
+	}
+
+
+	public void setIsActive(int isActive) {
+		this.isActive = isActive;
+	}
+
+
+	
+
 
 	@Override
 	public String toString() {
-		return "Animal [id=" + id + ", name=" + name + ", birthday=" + birthday + ", mom=" + mom + ", dad=" + dad + "]";
+		return "Animal [id=" + id + ", name=" + name + ", birthday=" + birthday + ", isActive=" + isActive + ", mom="
+				+ mom + ", dad=" + dad + ", category=" + category + ", species=" + species + "]";
 	}
 
 

@@ -17,6 +17,8 @@ public class Category
 	private String name;
 	
 	private String description;
+	
+	private int isActive = 0;
 
 	public int getId() {
 		return id;
@@ -41,10 +43,21 @@ public class Category
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
+
+	public int getIsActive() {
+		return isActive;
+	}
+
+	public void setIsActive(int isActive) {
+		this.isActive = isActive;
+	}
+
 
 	@Override
 	public String toString() {
-		return "Category [id=" + id + ", name=" + name + ", description=" + description + "]";
+		return "Category [id=" + id + ", name=" + name + ", description=" + description + ", isActive=" + isActive
+				+ "]";
 	}
 
 	@Override

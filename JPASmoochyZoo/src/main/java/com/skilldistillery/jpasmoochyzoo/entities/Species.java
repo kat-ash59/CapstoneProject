@@ -17,6 +17,8 @@ public class Species
 	private String name;
 	
 	private String description;
+	
+	private int isActive = 0;
 
 	public int getId() {
 		return id;
@@ -42,9 +44,20 @@ public class Species
 		this.description = description;
 	}
 
+	
+
+	public int getIsActive() {
+		return isActive;
+	}
+
+	public void setIsActive(int isActive) {
+		this.isActive = isActive;
+	}
+
+	
 	@Override
 	public String toString() {
-		return "Species [id=" + id + ", name=" + name + ", description=" + description + "]";
+		return "Species [id=" + id + ", name=" + name + ", description=" + description + ", isActive=" + isActive + "]";
 	}
 
 	@Override

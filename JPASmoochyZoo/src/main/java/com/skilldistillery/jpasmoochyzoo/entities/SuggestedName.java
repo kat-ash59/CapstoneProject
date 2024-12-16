@@ -18,6 +18,8 @@ public class SuggestedName
 	private int id;
 	
 	private String name;
+	
+	private int isActive = 0;
 
 	public int getId() {
 		return id;
@@ -35,9 +37,17 @@ public class SuggestedName
 		this.name = name;
 	}
 
+	public int getIsActive() {
+		return isActive;
+	}
+
+	public void setIsActive(int isActive) {
+		this.isActive = isActive;
+	}
+	
 	@Override
 	public String toString() {
-		return "SuggestedName [id=" + id + ", name=" + name + "]";
+		return "SuggestedName [id=" + id + ", name=" + name + ", isActive=" + isActive + "]";
 	}
 
 	@Override

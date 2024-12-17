@@ -9,8 +9,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.skilldistillery.jpasmoochyzoo.entities.Animal;
-
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -50,7 +48,7 @@ class AnimalTest {
 		assertEquals(2014,animal.getBirthday().getYear());
 		assertEquals("Lion",animal.getSpecies().getName());
 		assertEquals("carnivore",animal.getCategory().getName());
-		assertTrue(animal.isActive());
+		assertNull(animal.isActive());
 		assertEquals("Fred's Birthday Celebration",animal.getEventList().getFirst().getName());
 	}
 

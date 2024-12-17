@@ -19,7 +19,8 @@ public class SuggestedName
 	
 	private String name;
 	
-	private boolean isActive = false;
+	@Column(name="isActive")
+	private Boolean active;
 
 	public int getId() {
 		return id;
@@ -37,17 +38,21 @@ public class SuggestedName
 		this.name = name;
 	}
 
-	public boolean getIsActive() {
-		return isActive;
+	
+	
+	public Boolean getActive() {
+		return active;
 	}
 
-	public void setIsActive(boolean isActive) {
-		this.isActive = isActive;
+	public void setActive(Boolean active) {
+		this.active = active;
 	}
-	
+
+
+
 	@Override
 	public String toString() {
-		return "SuggestedName [id=" + id + ", name=" + name + ", isActive=" + isActive + "]";
+		return "SuggestedName [id=" + id + ", name=" + name + ", active=" + active + "]";
 	}
 
 	@Override

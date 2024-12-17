@@ -1,4 +1,4 @@
-package com.skilldistillery.jpasmoochyzoo.entites;
+package com.skilldistillery.jpasmoochyzoo.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -9,17 +9,17 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.skilldistillery.jpasmoochyzoo.entities.Zoo;
+import com.skilldistillery.jpasmoochyzoo.entities.Category;
 import com.skilldistillery.jpasmoochyzoo.entities.User;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
-public class ZooTest {
+public class CategoryTest {
 	private static EntityManagerFactory emf;
 	private static EntityManager em;
-	private Zoo zoo;
+	private Category category;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -35,22 +35,20 @@ public class ZooTest {
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
 
-		zoo = em.find(Zoo.class, 1);
+		category = em.find(Category.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		zoo = null;
+		category = null;
 	}
 
 	@Test
-	void test_ZooTable_basic_mappings() {
-		assertNotNull(zoo);
-		assertEquals(1, zoo.getId());
-		assertEquals("Smoochy Zoo", zoo.getName());
-		assertEquals("The happy zoo of smoochy land", zoo.getAbout());
-		assertEquals(1,zoo.getAddressId());
+	void test_CategoryTable_basic_mappings() {
+		assertNotNull(category);
+		assertEquals(1, category.getId());
+		assertEquals("carnivore", category.getName());
 		
 		
 	}

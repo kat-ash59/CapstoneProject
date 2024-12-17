@@ -1,4 +1,4 @@
-package com.skilldistillery.jpasmoochyzoo.entites;
+package com.skilldistillery.jpasmoochyzoo.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -9,16 +9,16 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.skilldistillery.jpasmoochyzoo.entities.SuggestedName;
+import com.skilldistillery.jpasmoochyzoo.entities.User;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
-public class SuggestedNameTest {
+public class UserTest {
 	private static EntityManagerFactory emf;
 	private static EntityManager em;
-	private SuggestedName suggestedName;
+	private User user;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -34,22 +34,20 @@ public class SuggestedNameTest {
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
 
-		suggestedName = em.find(SuggestedName.class, 1);
+		user = em.find(User.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		suggestedName = null;
+		user = null;
 	}
 
 	@Test
-	void test_SuggestedNameTable_basic_mappings() {
-		assertNotNull(suggestedName);
-		assertEquals(1, suggestedName.getId());
-		assertEquals("Bob", suggestedName.getName());
-		
-		
-		
+	void test_OrderTracking_basic_mappings() {
+		assertNotNull(user);
+		assertEquals("keeper", user.getUsername());
+		assertEquals("password", user.getPassword());
+		assertEquals("zookeeper@smoochyzoo.com", user.getEmail());
 	}
 }

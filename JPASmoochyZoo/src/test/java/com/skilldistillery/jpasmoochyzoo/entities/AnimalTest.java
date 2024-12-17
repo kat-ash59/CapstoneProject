@@ -1,7 +1,7 @@
-package com.skilldistillery.jpasmoochyzoo.entites;
+package com.skilldistillery.jpasmoochyzoo.entities;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -9,17 +9,17 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
-import com.skilldistillery.jpasmoochyzoo.entities.AdoptionDuration;
+import com.skilldistillery.jpasmoochyzoo.entities.Animal;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
-public class AdoptionDurationTest {
+class AnimalTest {
 	private static EntityManagerFactory emf;
-	private static EntityManager em;
-	private AdoptionDuration adoptionDuration;
+	private EntityManager em;
+	// entity under test
+	private Animal animal = null;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -34,23 +34,24 @@ public class AdoptionDurationTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-
-		adoptionDuration = em.find(AdoptionDuration.class, 1);
+		animal = em.find(Animal.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		adoptionDuration = null;
+		animal = null;
 	}
 
 	@Test
-	void test_ZooTable_basic_mappings() {
-		assertNotNull(adoptionDuration);
-		assertEquals(1, adoptionDuration.getId());
-		assertEquals("Month", adoptionDuration.getDuration());
-		
-		
-		
+	void test_User_basic_mappings() {
+		assertNotNull(animal);
+		assertEquals("Fred", animal.getName());
+		assertEquals(2014,animal.getBirthday().getYear());
+		assertEquals("Lion",animal.getSpecies().getName());
+		assertEquals("carnivore",animal.getCategory().getName());
+		assertTrue(animal.isActive());
+		assertEquals("Fred's Birthday Celebration",animal.getEventList().getFirst().getName());
 	}
+
 }

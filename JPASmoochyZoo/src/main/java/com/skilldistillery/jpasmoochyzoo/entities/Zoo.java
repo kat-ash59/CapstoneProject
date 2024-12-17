@@ -1,5 +1,6 @@
 package com.skilldistillery.jpasmoochyzoo.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
@@ -7,6 +8,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Zoo {
@@ -18,8 +23,15 @@ public class Zoo {
 
 	private String about;
 
-	@Column(name = "address_id")
-	private int addressId;
+	@Column(name = "isActive")
+	private Boolean active;
+
+	@OneToOne
+	@JoinColumn(name = "address_id")
+	private Address address;
+
+	@OneToMany(mappedBy = "zoo")
+	private List<Event> eventList;
 
 	public int getId() {
 		return id;
@@ -45,17 +57,34 @@ public class Zoo {
 		this.about = about;
 	}
 
-	public int getAddressId() {
-		return addressId;
+	public Boolean getActive() {
+		return active;
 	}
 
-	public void setAddressId(int addressId) {
-		this.addressId = addressId;
+	public void setActive(Boolean active) {
+		this.active = active;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public List<Event> getEventList() {
+		return eventList;
+	}
+
+	public void setEventList(List<Event> eventList) {
+		this.eventList = eventList;
 	}
 
 	@Override
 	public String toString() {
-		return "Zoo [id=" + id + ", name=" + name + ", about=" + about + ", addressId=" + addressId + "]";
+		return "Zoo [id=" + id + ", name=" + name + ", about=" + about + ", active=" + active + ", address=" + address
+				+ ", eventList=" + eventList + "]";
 	}
 
 	@Override

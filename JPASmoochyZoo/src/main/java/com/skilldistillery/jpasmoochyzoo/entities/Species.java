@@ -1,11 +1,15 @@
 package com.skilldistillery.jpasmoochyzoo.entities;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Species 
@@ -18,8 +22,29 @@ public class Species
 	
 	private String description;
 	
-	private boolean isActive = false;
+	@Column(name="isActive")
+	private Boolean active = false;
+	
+	@OneToMany(mappedBy="species")
+	private List<Animal> animalList;
 
+	public void addAnimalList(Animal animal) {
+		if (animalList == null) {
+			animalList =  new ArrayList<>();
+		}
+		
+		if (!animalList.contains(animal)) {
+			animalList.add(animal);
+		}
+	}
+	
+	public void removeAnimalList(Animal animal) {
+		if ((animalList != null) && (animalList.contains(animal))) {
+			animalList.remove(animal);
+			animal.setActive(false);
+		}
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -44,20 +69,27 @@ public class Species
 		this.description = description;
 	}
 
-	
-
-	public boolean getIsActive() {
-		return isActive;
+	public Boolean isActive() {
+		return active;
 	}
 
-	public void setIsActive(boolean isActive) {
-		this.isActive = isActive;
+	public void setActive(Boolean active) {
+		this.active = active;
 	}
 
+	public List<Animal> getAnimalList() {
+		return animalList;
+	}
+
+	public void setAnimalList(List<Animal> animalList) {
+		this.animalList = animalList;
+	}
 	
+	
+
 	@Override
 	public String toString() {
-		return "Species [id=" + id + ", name=" + name + ", description=" + description + ", isActive=" + isActive + "]";
+		return "Species [id=" + id + ", name=" + name + ", description=" + description + ", active=" + active + "]";
 	}
 
 	@Override

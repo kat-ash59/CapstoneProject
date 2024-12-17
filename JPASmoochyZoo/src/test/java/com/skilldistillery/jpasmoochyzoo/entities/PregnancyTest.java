@@ -1,7 +1,9 @@
-package com.skilldistillery.jpasmoochyzoo.entites;
+package com.skilldistillery.jpasmoochyzoo.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import java.sql.Date;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -9,17 +11,16 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.skilldistillery.jpasmoochyzoo.entities.Species;
-import com.skilldistillery.jpasmoochyzoo.entities.User;
+import com.skilldistillery.jpasmoochyzoo.entities.Pregnancy;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
-public class SpeciesTest {
+public class PregnancyTest {
 	private static EntityManagerFactory emf;
 	private static EntityManager em;
-	private Species species;
+	private Pregnancy pregnancy;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -35,21 +36,21 @@ public class SpeciesTest {
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
 
-		species = em.find(Species.class, 1);
+		pregnancy = em.find(Pregnancy.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		species = null;
+		pregnancy = null;
 	}
 
 	@Test
-	void test_SpeciesTable_basic_mappings() {
-		assertNotNull(species);
-		assertEquals(1, species.getId());
-		assertEquals("Lion", species.getName());
-		
-		
+	void test_PregnancyTable_basic_mappings() {
+		assertNotNull(pregnancy);
+		assertEquals(1, pregnancy.getId());
+		assertEquals(Date.valueOf("2025-02-01"), pregnancy.getExpectedArrival());
+		assertEquals(3, pregnancy.getNumberOfExpectedOffspring());
 	}
+
 }

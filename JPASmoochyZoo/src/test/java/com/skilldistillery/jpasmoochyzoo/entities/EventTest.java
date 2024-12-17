@@ -1,7 +1,9 @@
-package com.skilldistillery.jpasmoochyzoo.entites;
+package com.skilldistillery.jpasmoochyzoo.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import java.sql.Timestamp;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -9,17 +11,16 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.skilldistillery.jpasmoochyzoo.entities.Address;
-import com.skilldistillery.jpasmoochyzoo.entities.User;
+import com.skilldistillery.jpasmoochyzoo.entities.Event;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
-public class AddressTest {
+public class EventTest {
 	private static EntityManagerFactory emf;
 	private static EntityManager em;
-	private Address address;
+	private Event event;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -35,21 +36,21 @@ public class AddressTest {
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
 
-		address = em.find(Address.class, 1);
+		event = em.find(Event.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		address = null;
+		event = null;
 	}
 
 	@Test
-	void test_Address_basic_mappings() {
-		assertNotNull(address);
-		assertEquals("121 Main Street", address.getStreet());
-		assertEquals("Denver", address.getCity());
-		assertEquals("Colorado", address.getState());
-		assertEquals("555-334-1212", address.getPhoneNumber());
+	void test_Event_basic_mappings() {
+		assertNotNull(event);
+		assertEquals("Fred's Birthday Celebration", event.getName());
+		assertEquals(Timestamp.valueOf("2024-12-25 00:00:00"), event.getEventDate());
+		assertEquals(1, event.getAnimal().getId());
+		assertEquals(1, event.getZoo().getId());
 	}
 }

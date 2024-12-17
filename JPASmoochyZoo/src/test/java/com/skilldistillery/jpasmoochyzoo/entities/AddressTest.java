@@ -1,9 +1,7 @@
-package com.skilldistillery.jpasmoochyzoo.entites;
+package com.skilldistillery.jpasmoochyzoo.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-
-import java.sql.Date;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -11,16 +9,17 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.skilldistillery.jpasmoochyzoo.entities.Pregnancy;
+import com.skilldistillery.jpasmoochyzoo.entities.Address;
+import com.skilldistillery.jpasmoochyzoo.entities.User;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
-public class PregnancyTest {
+public class AddressTest {
 	private static EntityManagerFactory emf;
 	private static EntityManager em;
-	private Pregnancy pregnancy;
+	private Address address;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -36,21 +35,21 @@ public class PregnancyTest {
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
 
-		pregnancy = em.find(Pregnancy.class, 1);
+		address = em.find(Address.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		pregnancy = null;
+		address = null;
 	}
 
 	@Test
-	void test_PregnancyTable_basic_mappings() {
-		assertNotNull(pregnancy);
-		assertEquals(1, pregnancy.getId());
-		assertEquals(Date.valueOf("2025-02-01"), pregnancy.getExpectedArrival());
-		assertEquals(3, pregnancy.getNumberOfExpectedOffspring());
+	void test_Address_basic_mappings() {
+		assertNotNull(address);
+		assertEquals("121 Main Street", address.getStreet());
+		assertEquals("Denver", address.getCity());
+		assertEquals("Colorado", address.getState());
+		assertEquals("555-334-1212", address.getPhoneNumber());
 	}
-
 }

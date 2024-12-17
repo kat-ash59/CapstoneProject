@@ -4,7 +4,7 @@ target
 build
 bin
 default
-.metadata
+.metadata/
 .settings
 .gradle
 *.war

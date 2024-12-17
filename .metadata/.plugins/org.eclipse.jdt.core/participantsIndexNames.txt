@@ -1,3 +1,0 @@
-INDEX VERSION 1.134
-C:\Users\arnol\SD\Java\CapstoneProject\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\561036775.index
-\SmoochyZoo\src\main\java

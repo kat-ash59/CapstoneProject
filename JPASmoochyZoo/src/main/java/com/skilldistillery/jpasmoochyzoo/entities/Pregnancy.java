@@ -22,6 +22,9 @@ public class Pregnancy {
 	@Column(name = "number_of_offspring_expected")
 	private int numberOfExpectedOffspring;
 
+	@Column(name = "isActive")
+	private Boolean isActive;
+
 	public Pregnancy() {
 	}
 
@@ -31,6 +34,14 @@ public class Pregnancy {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public Boolean getIsActive() {
+		return isActive;
+	}
+
+	public void setIsActive(Boolean isActive) {
+		this.isActive = isActive;
 	}
 
 	public Date getExpectedArrival() {

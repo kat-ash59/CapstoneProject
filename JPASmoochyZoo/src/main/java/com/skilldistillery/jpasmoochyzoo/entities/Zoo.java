@@ -9,17 +9,16 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Zoo 
-{
+public class Zoo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	private String name;
-	
+
 	private String about;
-	
-	@Column(name="address_id")
+
+	@Column(name = "address_id")
 	private int addressId;
 
 	public int getId() {
@@ -75,8 +74,5 @@ public class Zoo
 		Zoo other = (Zoo) obj;
 		return id == other.id;
 	}
-	
-	
-	
-	
+
 } // end class Zoo

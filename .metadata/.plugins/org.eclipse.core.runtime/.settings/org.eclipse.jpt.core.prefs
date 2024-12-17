@@ -1,0 +1,8 @@
+defaultJpaPlatform_3.1=generic3_1
+eclipse.preferences.version=1
+entitygen.DEFAULT_PACKAGE=model
+jpqlIdentifier.CASE=lowercase
+jpqlIdentifier.MATCH_FIRST_CHARACTER_CASE=true
+jpqlQueryEditorNumberOfLines=5
+problem.PERSISTENCE_UNIT_INVALID_CLASS=ignore
+problem.PERSISTENCE_XML_UNSUPPORTED_CONTENT=ignore

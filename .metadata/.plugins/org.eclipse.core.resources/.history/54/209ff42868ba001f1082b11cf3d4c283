@@ -1,0 +1,49 @@
+package com.skilldistillery.jpasmoochyzoo.client;
+
+import com.skilldistillery.jpasmoochyzoo.data.AnimalDAOImpl;
+import com.skilldistillery.jpasmoochyzoo.entities.Animal;
+import com.skilldistillery.jpasmoochyzoo.entities.Category;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
+import java.time.LocalDateTime;
+import java.time.Month;
+
+public class AnimalClient 
+{
+	static EntityManagerFactory emf =
+		      Persistence.createEntityManagerFactory("SmoochyZoo");
+	static EntityManager em = emf.createEntityManager();
+
+	public static void main(String[] args) 
+	{
+				AnimalDAOImpl dao = new AnimalDAOImpl();
+				
+			    LocalDateTime birthday = LocalDateTime.of(2024, Month.FEBRUARY, 10, 12, 30);
+			    Category newCategory;
+			    Animal mom = null;
+			    Animal dad = null;
+
+			    Animal newAnimal = new Animal();
+			    newAnimal.setName("Pebbles");
+			    newAnimal.setBirthday(birthday);
+			    
+			    newCategory = em.find(Category.class,1);
+			    newAnimal.setCategory(newCategory);
+			    
+			    mom = em.find(Animal.class, 2);
+			    dad = em.find(Animal.class,1);
+			    newAnimal.setMom(mom);
+			    newAnimal.setDad(dad);
+			    
+			    newAnimal = dao.addAnimal(newAnimal);
+			    
+			    System.out.println(newAnimal.toString());
+
+			    // No memory leaks...
+			    em.close();
+			    emf.close();
+	}
+
+}

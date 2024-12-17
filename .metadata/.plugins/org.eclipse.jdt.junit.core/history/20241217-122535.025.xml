@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="CategoryTest" project="JPASmoochyZoo" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="com.skilldistillery.jpasmoochyzoo.entites.CategoryTest" time="0.141" displayname="CategoryTest" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.jpasmoochyzoo.entites.CategoryTest]">
+    <testcase name="test_CategoryTable_basic_mappings" classname="com.skilldistillery.jpasmoochyzoo.entites.CategoryTest" time="0.141" displayname="test_CategoryTable_basic_mappings()" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.jpasmoochyzoo.entites.CategoryTest]/[method:test_CategoryTable_basic_mappings()]"/>
+  </testsuite>
+</testrun>

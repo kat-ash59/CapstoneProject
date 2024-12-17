@@ -1,0 +1,10 @@
+package com.skilldistillery.smoochyzoo.data;
+
+public class UserDAOImpl implements UserDAO {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,85 @@
+package com.skilldistillery.jpasmoochyzoo.client;
+
+import com.skilldistillery.jpasmoochyzoo.data.AnimalDAOImpl;
+import com.skilldistillery.jpasmoochyzoo.entities.Animal;
+import com.skilldistillery.jpasmoochyzoo.entities.Category;
+import com.skilldistillery.jpasmoochyzoo.entities.Species;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
+import java.time.LocalDateTime;
+import java.time.Month;
+
+public class AnimalClient 
+{
+	static EntityManagerFactory emf =
+		      Persistence.createEntityManagerFactory("SmoochyZoo");
+	static EntityManager em = emf.createEntityManager();
+
+	public static void main(String[] args) 
+	{
+				AnimalDAOImpl dao = new AnimalDAOImpl();
+				
+			    LocalDateTime birthday = LocalDateTime.of(2024, Month.FEBRUARY, 10, 12, 30);
+			    Category newCategory;
+			    Animal mom = null;
+			    Animal dad = null;
+			    Animal updatedAnimal = null;
+			    Species species = null;
+			    int animalDeleted = 0;
+
+
+			    // testing add animal
+			    Animal newAnimal = new Animal();
+			    newAnimal.setName("Pebbles");
+			    newAnimal.setBirthday(birthday);
+			    
+			    newCategory = em.find(Category.class,1);
+			    newAnimal.setCategory(newCategory);
+			    
+			    species = em.find(Species.class, 1);
+			    newAnimal.setSpecies(species);
+			    
+			    mom = em.find(Animal.class, 2);
+			    dad = em.find(Animal.class,1);
+			    newAnimal.setMom(mom);
+			    newAnimal.setDad(dad);
+			    
+			    newAnimal = dao.addAnimal(newAnimal);
+			    
+			    System.out.println(newAnimal.toString());
+
+			    
+			    // testing update animal
+			    updatedAnimal = dao.updateAnimal(updatedAnimal);
+			    
+			    System.out.println("Updated Animal should be null " + updatedAnimal);
+			    
+			    
+			    updatedAnimal = dao.findAnimalById(3);
+			    System.out.println("\nafter find animal by id = 3 " + updatedAnimal.toString());
+			    
+			    updatedAnimal.setName("Fred Jr");
+			    
+			    System.out.println("\n\nnew name should be Fred Jr\n");
+			    updatedAnimal = dao.updateAnimal(updatedAnimal);
+			    System.out.println(updatedAnimal.toString());
+
+			    
+			    // testing delete animal
+			   animalDeleted = dao.deleteAnimal(updatedAnimal);
+			   if (animalDeleted != 0)
+			   {
+				   System.out.println("successfully deleted animal");
+			   }
+			   {
+				   System.out.println("did not animal");
+			   }
+			    
+			    // No memory leaks...
+			    em.close();
+			    emf.close();
+	}
+
+}

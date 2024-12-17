@@ -1,0 +1,14 @@
+package com.skilldistillery.jpasmoochyzoo.data;
+
+import java.util.List;
+
+import com.skilldistillery.jpasmoochyzoo.entities.Animal;
+
+public interface AnimalDAO 
+{
+
+	public Animal addAnimal(Animal animal);
+
+	public List<Animal> findAllAnimals();
+
+}

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="jakarta.persistence.GenerationType"/>
+    <fullyQualifiedTypeName name="com.skilldistillery.jpasmoochyzoo.entities.Animal"/>
+    <fullyQualifiedTypeName name="com.skilldistillery.jpasmoochyzoo.entities.Category"/>
+</qualifiedTypeNameHistroy>

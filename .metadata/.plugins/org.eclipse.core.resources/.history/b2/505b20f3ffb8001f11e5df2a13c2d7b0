@@ -1,0 +1,2 @@
+rootProject.name = 'SmoochyZoo'
+includeFlat 'SmoochyZoo'

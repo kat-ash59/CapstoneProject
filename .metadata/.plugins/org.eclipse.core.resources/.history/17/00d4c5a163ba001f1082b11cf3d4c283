@@ -1,0 +1,5 @@
+package com.skilldistillery.jpasmoochyzoo.data;
+
+public abstract class AnimalDAO {
+
+}

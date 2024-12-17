@@ -11,7 +11,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.skilldistillery.jpasmoochyzoo.entities.Address;
 import com.skilldistillery.jpasmoochyzoo.entities.Event;
 
 import jakarta.persistence.EntityManager;

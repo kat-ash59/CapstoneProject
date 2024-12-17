@@ -23,7 +23,7 @@ public class Species
 	private String description;
 	
 	@Column(name="isActive")
-	private boolean active = false;
+	private Boolean active = false;
 	
 	@OneToMany(mappedBy="species")
 	private List<Animal> animalList;
@@ -41,7 +41,7 @@ public class Species
 	public void removeAnimalList(Animal animal) {
 		if ((animalList != null) && (animalList.contains(animal))) {
 			animalList.remove(animal);
-			animal.setIsActive(false);
+			animal.setActive(false);
 		}
 	}
 	
@@ -69,11 +69,11 @@ public class Species
 		this.description = description;
 	}
 
-	public boolean isActive() {
+	public Boolean isActive() {
 		return active;
 	}
 
-	public void setActive(boolean active) {
+	public void setActive(Boolean active) {
 		this.active = active;
 	}
 

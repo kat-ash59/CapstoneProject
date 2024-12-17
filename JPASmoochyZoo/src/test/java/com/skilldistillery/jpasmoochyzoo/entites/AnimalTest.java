@@ -47,7 +47,11 @@ class AnimalTest {
 	void test_User_basic_mappings() {
 		assertNotNull(animal);
 		assertEquals("Fred", animal.getName());
-		assertEquals("2014",animal.getBirthday().getYear());
+		assertEquals(2014,animal.getBirthday().getYear());
+		assertEquals("Lion",animal.getSpecies().getName());
+		assertEquals("carnivore",animal.getCategory().getName());
+		assertTrue(animal.isActive());
+		assertEquals("Fred's Birthday Celebration",animal.getEventList().getFirst().getName());
 	}
 
 }

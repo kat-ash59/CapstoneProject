@@ -50,7 +50,8 @@ public class ZooTest {
 		assertEquals(1, zoo.getId());
 		assertEquals("Smoochy Zoo", zoo.getName());
 		assertEquals("The happy zoo of smoochy land", zoo.getAbout());
-		assertEquals(1,zoo.getAddressId());
+		assertEquals("Denver",zoo.getAddress().getCity());
+		assertEquals("Smoochy's Zoo Anniversary ",zoo.getEventList().get(1).getName());
 		
 		
 	}

@@ -1,6 +1,7 @@
 package com.skilldistillery.jpasmoochyzoo.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
@@ -10,6 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -29,30 +31,33 @@ public class Animal
 	
 	private String gender;
 	
-	private boolean isActive = false;
+	private Boolean isActive = false;
 	
 
 	@ManyToOne
-	@JoinColumn(name="mom_id")
+	@JoinColumn(name="mom_Id")
 	private Animal mom;
 	
 	
 	@ManyToOne
-	@JoinColumn(name="dad_id")
+	@JoinColumn(name="dad_Id")
 	private Animal dad;
 
 	@ManyToOne
-	@JoinColumn(name="category_id")
+	@JoinColumn(name="category_Id")
 	private Category category;
 	
 	@ManyToOne
-	@JoinColumn(name="species_id")
+	@JoinColumn(name="species_Id")
 	private Species species;
+
+	@OneToMany(mappedBy="animal")
+	private List<Event> eventList;
+
 	
 	public Animal()
 	{
 	}
-
 
 	public int getId() {
 		return id;
@@ -69,9 +74,13 @@ public class Animal
 	}
 
 
+
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
+
 
 
 	public LocalDateTime getBirthday() {
@@ -79,9 +88,13 @@ public class Animal
 	}
 
 
+
+
 	public void setBirthday(LocalDateTime birthday) {
 		this.birthday = birthday;
 	}
+
+
 
 
 	public String getGender() {
@@ -89,19 +102,27 @@ public class Animal
 	}
 
 
+
+
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
 
 
-	public boolean getIsActive() {
+
+
+	public Boolean isActive() {
 		return isActive;
 	}
 
 
-	public void setIsActive(boolean isActive) {
+
+
+	public void setActive(Boolean isActive) {
 		this.isActive = isActive;
 	}
+
+
 
 
 	public Animal getMom() {
@@ -109,9 +130,13 @@ public class Animal
 	}
 
 
+
+
 	public void setMom(Animal mom) {
 		this.mom = mom;
 	}
+
+
 
 
 	public Animal getDad() {
@@ -119,39 +144,61 @@ public class Animal
 	}
 
 
+
+
 	public void setDad(Animal dad) {
 		this.dad = dad;
 	}
 
-	
+
+
 
 	public Category getCategory() {
 		return category;
 	}
 
 
+
+
 	public void setCategory(Category category) {
 		this.category = category;
 	}
 
-	
+
+
+
 	public Species getSpecies() {
 		return species;
 	}
+
+
 
 
 	public void setSpecies(Species species) {
 		this.species = species;
 	}
 
-	
+
+
+	public List<Event> getEventList() {
+		return eventList;
+	}
+
+
+
+
+	public void setEventList(List<Event> eventList) {
+		this.eventList = eventList;
+	}
+
+
+
 
 	@Override
 	public String toString() {
 		return "Animal [id=" + id + ", name=" + name + ", birthday=" + birthday + ", gender=" + gender + ", isActive="
-				+ isActive + ", mom=" + mom + ", dad=" + dad + ", category=" + category + ", species=" + species + "]";
+				+ isActive + ", mom=" + mom + ", dad=" + dad + "]";
 	}
-
 
 	@Override
 	public int hashCode() {

@@ -2,6 +2,7 @@ package com.skilldistillery.jpasmoochyzoo.entites;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -48,8 +49,7 @@ public class SuggestedNameTest {
 		assertNotNull(suggestedName);
 		assertEquals(1, suggestedName.getId());
 		assertEquals("Bob", suggestedName.getName());
-		
-		
+		assertEquals(null,suggestedName.getActive());
 		
 	}
 }

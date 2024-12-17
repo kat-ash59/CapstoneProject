@@ -15,7 +15,7 @@ public class UserDAOImpl implements UserDAO {
 	@PersistenceContext
 	private EntityManager em;
 
-	// anything you wish 
+	// anything you 
 	public UserDAOImpl(EntityManager em) {
 	    this.em = em;
 	}

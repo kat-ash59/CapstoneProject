@@ -7,18 +7,25 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "user")
 public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
+	@Column(name = "username")
 	private String username;
-
+	
+	@Column(name = "password")
 	private String password;
 
+	@Column(name="enabled")
 	private Boolean enabled;
 
 	@Column(name = "about_me")
@@ -26,7 +33,16 @@ public class User {
 
 	@Column(name = "privacy_check")
 	private Boolean privacyCheck;
-
+	
+	@ManyToOne
+	@JoinColumn(name="address_id")
+	private Address address;
+	
+	
+	@Column(name="isActive")
+	private Boolean isActive; 
+	
+	@Column(name="email")
 	private String email;
 
 	public User() {
@@ -80,18 +96,28 @@ public class User {
 		this.privacyCheck = privacyCheck;
 	}
 
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public Boolean getIsActive() {
+		return isActive;
+	}
+
+	public void setIsActive(Boolean isActive) {
+		this.isActive = isActive;
+	}
+
 	public String getEmail() {
 		return email;
 	}
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled
-				+ ", aboutMe=" + aboutMe + ", privacyCheck=" + privacyCheck + ", email=" + email + "]";
 	}
 
 	@Override
@@ -108,7 +134,15 @@ public class User {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		return Objects.equals(password, other.password);
+		return id == other.id;
 	}
 
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled
+				+ ", aboutMe=" + aboutMe + ", privacyCheck=" + privacyCheck + ", address=" + address + ", isActive="
+				+ isActive + ", email=" + email + "]";
+	}
+
+	
 }

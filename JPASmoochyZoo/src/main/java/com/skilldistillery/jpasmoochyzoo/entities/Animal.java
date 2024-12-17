@@ -41,15 +41,15 @@ public class Animal
 	@JoinColumn(name="dad_id")
 	private Animal dad;
 
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name="category_id")
 	private Category category;
 	
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name="species_id")
 	private Species species;
 	
-	private void Animal()
+	public Animal()
 	{
 	}
 

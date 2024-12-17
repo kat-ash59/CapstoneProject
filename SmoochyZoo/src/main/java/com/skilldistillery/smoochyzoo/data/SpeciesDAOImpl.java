@@ -48,7 +48,7 @@ public class SpeciesDAOImpl implements SpeciesDAO
 	@Override
 	public Species addSpecies(Species species)
 	{
-		species.setIsActive(true);
+		species.setActive(true);
 		
 		em.persist(species);
 
@@ -82,13 +82,13 @@ public class SpeciesDAOImpl implements SpeciesDAO
 				updatedSpecies.setName(species.getDescription());
 		}
 		
-		if (species.getIsActive() == true)
+		if (species.isActive() == true)
 		{
-			species.setIsActive(true);
+			species.setActive(true);
 		}
 		else
 		{
-			species.setIsActive(false);
+			species.setActive(false);
 		}
 		
 		em.persist(updatedSpecies);
@@ -110,7 +110,7 @@ public class SpeciesDAOImpl implements SpeciesDAO
 		
 		if (species != null)
 		{
-			species.setIsActive(false);
+			species.setActive(false);
 			
 			em.persist(species);
 			

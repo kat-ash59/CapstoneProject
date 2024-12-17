@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.jpasmoochyzoo.entities.Animal;
+import com.skilldistillery.jpasmoochyzoo.entities.Category;
+import com.skilldistillery.jpasmoochyzoo.entities.Species;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -44,6 +46,45 @@ public class AnimalDAOImpl implements AnimalDAO
 		return animalList;
 	}
 	
+	@Override
+	public List<Animal> findAnimalsByCategory(Category category)
+	{
+		Category cat = em.find(Category.class, category.getId());
+		
+		List<Animal> animalList = cat.getAnimalList();
+		
+		animalList.size();
+
+		
+		return animalList;
+	}
+	
+	@Override
+	public List<Animal> findAnimalsBySpecies(Species species)
+	{
+		Species spec = em.find(Species.class, species.getId());
+		
+		List<Animal> animalList = spec.getAnimalList();
+		
+		animalList.size();
+
+		
+		return animalList;
+	}
+	
+	@Override
+	public List<Animal> findAnimalsByName(String nameRequested)
+	{
+		List<Animal> animalList = null;
+		
+		String jpql = "Select animals from Animal animals where name = :nameRequested";
+		animalList = em.createQuery(jpql,Animal.class)
+				.setParameter("nameRequested",nameRequested).getResultList();
+		
+		animalList.size();
+		
+		return animalList;
+	}
 	
 	@Override
 	public Animal addAnimal(Animal animal)

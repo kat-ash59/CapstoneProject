@@ -7,6 +7,9 @@
 <title>The Smoochy Zoo</title>
 </head>
 <body>
-	<h1>Hello world</h1>
+	<h1>Welcome To Smoochy Zoo!</h1>
+	
+	<h3>Staff Login</h3>
+	
 </body>
 </html>

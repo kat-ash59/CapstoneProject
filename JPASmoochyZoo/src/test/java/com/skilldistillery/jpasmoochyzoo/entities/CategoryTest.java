@@ -1,4 +1,4 @@
-package com.skilldistillery.jpasmoochyzoo.entites;
+package com.skilldistillery.jpasmoochyzoo.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -9,17 +9,17 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.skilldistillery.jpasmoochyzoo.entities.Address;
+import com.skilldistillery.jpasmoochyzoo.entities.Category;
 import com.skilldistillery.jpasmoochyzoo.entities.User;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
-public class AddressTest {
+public class CategoryTest {
 	private static EntityManagerFactory emf;
 	private static EntityManager em;
-	private Address address;
+	private Category category;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -35,21 +35,21 @@ public class AddressTest {
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
 
-		address = em.find(Address.class, 1);
+		category = em.find(Category.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		address = null;
+		category = null;
 	}
 
 	@Test
-	void test_Address_basic_mappings() {
-		assertNotNull(address);
-		assertEquals("121 Main Street", address.getStreet());
-		assertEquals("Denver", address.getCity());
-		assertEquals("Colorado", address.getState());
-		assertEquals("555-334-1212", address.getPhoneNumber());
+	void test_CategoryTable_basic_mappings() {
+		assertNotNull(category);
+		assertEquals(1, category.getId());
+		assertEquals("carnivore", category.getName());
+		
+		
 	}
 }

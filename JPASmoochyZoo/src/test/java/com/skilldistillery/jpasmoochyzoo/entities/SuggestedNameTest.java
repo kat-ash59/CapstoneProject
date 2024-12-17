@@ -1,7 +1,8 @@
-package com.skilldistillery.jpasmoochyzoo.entites;
+package com.skilldistillery.jpasmoochyzoo.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -9,17 +10,16 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.skilldistillery.jpasmoochyzoo.entities.Category;
-import com.skilldistillery.jpasmoochyzoo.entities.User;
+import com.skilldistillery.jpasmoochyzoo.entities.SuggestedName;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
-public class CategoryTest {
+public class SuggestedNameTest {
 	private static EntityManagerFactory emf;
 	private static EntityManager em;
-	private Category category;
+	private SuggestedName suggestedName;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -35,21 +35,21 @@ public class CategoryTest {
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
 
-		category = em.find(Category.class, 1);
+		suggestedName = em.find(SuggestedName.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		category = null;
+		suggestedName = null;
 	}
 
 	@Test
-	void test_CategoryTable_basic_mappings() {
-		assertNotNull(category);
-		assertEquals(1, category.getId());
-		assertEquals("carnivore", category.getName());
-		
+	void test_SuggestedNameTable_basic_mappings() {
+		assertNotNull(suggestedName);
+		assertEquals(1, suggestedName.getId());
+		assertEquals("Bob", suggestedName.getName());
+		assertEquals(null,suggestedName.getActive());
 		
 	}
 }

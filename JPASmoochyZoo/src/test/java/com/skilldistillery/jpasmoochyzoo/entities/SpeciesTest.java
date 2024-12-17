@@ -1,4 +1,4 @@
-package com.skilldistillery.jpasmoochyzoo.entites;
+package com.skilldistillery.jpasmoochyzoo.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -9,17 +9,17 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.skilldistillery.jpasmoochyzoo.entities.Role;
+import com.skilldistillery.jpasmoochyzoo.entities.Species;
 import com.skilldistillery.jpasmoochyzoo.entities.User;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
-public class RoleTest {
+public class SpeciesTest {
 	private static EntityManagerFactory emf;
 	private static EntityManager em;
-	private Role role;
+	private Species species;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -35,20 +35,21 @@ public class RoleTest {
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
 
-		role = em.find(Role.class, 1);
+		species = em.find(Species.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		role = null;
+		species = null;
 	}
 
 	@Test
-	void test_RoleTable_basic_mappings() {
-		assertNotNull(role);
-		assertEquals(1, role.getId());
-		assertEquals("member", role.getName());
+	void test_SpeciesTable_basic_mappings() {
+		assertNotNull(species);
+		assertEquals(1, species.getId());
+		assertEquals("Lion", species.getName());
+		assertEquals("Fred",species.getAnimalList().getFirst().getName());
 		
 		
 	}

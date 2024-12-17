@@ -1,9 +1,7 @@
-package com.skilldistillery.jpasmoochyzoo.entites;
+package com.skilldistillery.jpasmoochyzoo.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-
-import java.sql.Timestamp;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -11,17 +9,17 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.skilldistillery.jpasmoochyzoo.entities.Address;
-import com.skilldistillery.jpasmoochyzoo.entities.Event;
+import com.skilldistillery.jpasmoochyzoo.entities.Zoo;
+import com.skilldistillery.jpasmoochyzoo.entities.User;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
-public class EventTest {
+public class ZooTest {
 	private static EntityManagerFactory emf;
 	private static EntityManager em;
-	private Event event;
+	private Zoo zoo;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -37,21 +35,24 @@ public class EventTest {
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
 
-		event = em.find(Event.class, 1);
+		zoo = em.find(Zoo.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		event = null;
+		zoo = null;
 	}
 
 	@Test
-	void test_Event_basic_mappings() {
-		assertNotNull(event);
-		assertEquals("Fred's Birthday Celebration", event.getName());
-		assertEquals(Timestamp.valueOf("2024-12-25 00:00:00"), event.getEventDate());
-		assertEquals(1, event.getAnimal().getId());
-		assertEquals(1, event.getZoo().getId());
+	void test_ZooTable_basic_mappings() {
+		assertNotNull(zoo);
+		assertEquals(1, zoo.getId());
+		assertEquals("Smoochy Zoo", zoo.getName());
+		assertEquals("The happy zoo of smoochy land", zoo.getAbout());
+		assertEquals("Denver",zoo.getAddress().getCity());
+		assertEquals("Smoochy's Zoo Anniversary ",zoo.getEventList().get(1).getName());
+		
+		
 	}
 }

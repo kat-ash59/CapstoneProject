@@ -1,8 +1,7 @@
-package com.skilldistillery.jpasmoochyzoo.entites;
+package com.skilldistillery.jpasmoochyzoo.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -10,16 +9,17 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.skilldistillery.jpasmoochyzoo.entities.SuggestedName;
+import com.skilldistillery.jpasmoochyzoo.entities.Role;
+import com.skilldistillery.jpasmoochyzoo.entities.User;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
-public class SuggestedNameTest {
+public class RoleTest {
 	private static EntityManagerFactory emf;
 	private static EntityManager em;
-	private SuggestedName suggestedName;
+	private Role role;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -35,21 +35,21 @@ public class SuggestedNameTest {
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
 
-		suggestedName = em.find(SuggestedName.class, 1);
+		role = em.find(Role.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		suggestedName = null;
+		role = null;
 	}
 
 	@Test
-	void test_SuggestedNameTable_basic_mappings() {
-		assertNotNull(suggestedName);
-		assertEquals(1, suggestedName.getId());
-		assertEquals("Bob", suggestedName.getName());
-		assertEquals(null,suggestedName.getActive());
+	void test_RoleTable_basic_mappings() {
+		assertNotNull(role);
+		assertEquals(1, role.getId());
+		assertEquals("member", role.getName());
+		
 		
 	}
 }

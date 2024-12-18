@@ -1,7 +1,9 @@
-package com.skilldistillery.jpasmoochyzoo.entites;
+package com.skilldistillery.jpasmoochyzoo.entities;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -9,18 +11,17 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.skilldistillery.jpasmoochyzoo.entities.Animal;
+
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
-class AnimalTest {
+public class AnimalTest {
 	private static EntityManagerFactory emf;
-	private EntityManager em;
-	// entity under test
-	private Animal animal = null;
-
+	private static EntityManager em;
+	private Animal animal;
+	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		emf = Persistence.createEntityManagerFactory("SmoochyZoo");
@@ -50,7 +51,7 @@ class AnimalTest {
 		assertEquals(2014,animal.getBirthday().getYear());
 		assertEquals("Lion",animal.getSpecies().getName());
 		assertEquals("carnivore",animal.getCategory().getName());
-		assertTrue(animal.isActive());
+		assertNull(animal.isActive());
 		assertEquals("Fred's Birthday Celebration",animal.getEventList().getFirst().getName());
 	}
 

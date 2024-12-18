@@ -1,4 +1,4 @@
-package com.skilldistillery.jpasmoochyzoo.entites;
+package com.skilldistillery.jpasmoochyzoo.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;

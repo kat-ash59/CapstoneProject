@@ -1,4 +1,4 @@
-package src.main.java.com.skilldistillery.smoochyzoo.controllers;
+package com.skilldistillery.smoochyzoo.controllers;
 
 import org.springframework.stereotype.Controller;
 

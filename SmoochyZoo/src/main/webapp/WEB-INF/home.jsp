@@ -16,7 +16,7 @@
 		<p style="color: red">${error}</p>
 	</c:if>
 
-	<form action=${pageContext.request.contextPath}/login/authentication>
+	<form action=${pageContext.request.contextPath}/login/authentication">
 		<label for="username">Username:</label> <input type="text"
 			id="username" name="username" required> <br> <br> <label
 			for="password">Password:</label> <input type="password" id="password"

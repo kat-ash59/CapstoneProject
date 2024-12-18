@@ -17,8 +17,8 @@ import jakarta.persistence.Persistence;
 public class SuggestedNameTest {
 	private static EntityManagerFactory emf;
 	private static EntityManager em;
-	private SuggestedName suggestedName;
-
+	private SuggestedName suggstedName;
+	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		emf = Persistence.createEntityManagerFactory("SmoochyZoo");
@@ -33,21 +33,21 @@ public class SuggestedNameTest {
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
 
-		suggestedName = em.find(SuggestedName.class, 1);
+		suggstedName = em.find(SuggestedName.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		suggestedName = null;
+		suggstedName = null;
 	}
 
 	@Test
 	void test_SuggestedNameTable_basic_mappings() {
-		assertNotNull(suggestedName);
-		assertEquals(1, suggestedName.getId());
-		assertEquals("Bob", suggestedName.getName());
-		assertEquals(null,suggestedName.getActive());
+		assertNotNull(suggstedName);
+		assertEquals(1, suggstedName.getId());
+		assertEquals("Bob", suggstedName.getName());
+		assertEquals(null,suggstedName.getActive());
 		
 	}
 }

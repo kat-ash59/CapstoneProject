@@ -2,6 +2,7 @@ package com.skilldistillery.jpasmoochyzoo.entities;
 
 import java.util.Objects;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,6 +17,9 @@ public class Role {
 
 	private String name;
 
+	@Column(name = "isActive")
+	private Boolean isActive;
+
 	public Role() {
 
 	}
@@ -26,6 +30,14 @@ public class Role {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public Boolean getIsActive() {
+		return isActive;
+	}
+
+	public void setIsActive(Boolean isActive) {
+		this.isActive = isActive;
 	}
 
 	public String getName() {

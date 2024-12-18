@@ -13,24 +13,23 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
 @Entity
-public class Zoo 
-{
+public class Zoo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	private String name;
-	
+
 	private String about;
-	
-	@Column(name="isActive")
+
+	@Column(name = "isActive")
 	private Boolean active;
-	
+
 	@OneToOne
-	@JoinColumn(name="address_id")
+	@JoinColumn(name = "address_id")
 	private Address address;
-	
-	@OneToMany(mappedBy="zoo")
+
+	@OneToMany(mappedBy = "zoo")
 	private List<Event> eventList;
 
 	public int getId() {
@@ -57,7 +56,6 @@ public class Zoo
 		this.about = about;
 	}
 
-	
 	public Boolean getActive() {
 		return active;
 	}
@@ -65,6 +63,7 @@ public class Zoo
 	public void setActive(Boolean active) {
 		this.active = active;
 	}
+
 
 	public Address getAddress() {
 		return address;
@@ -74,7 +73,6 @@ public class Zoo
 		this.address = address;
 	}
 
-	
 	public List<Event> getEventList() {
 		return eventList;
 	}
@@ -105,8 +103,5 @@ public class Zoo
 		Zoo other = (Zoo) obj;
 		return id == other.id;
 	}
-	
-	
-	
-	
+
 } // end class Zoo

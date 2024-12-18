@@ -1,5 +1,17 @@
-# Ignore Gradle project-specific cache directory
-.gradle
-
-# Ignore Gradle build output directory
+.DS_Store
+Servers
+target
 build
+bin
+default
+<<<<<<< HEAD
+.metadata
+=======
+.metadata/
+>>>>>>> 183f8a1a2174b3d8aae137a33a74c2f8674648ab
+.settings
+.gradle
+*.war
+*.bak
+*.mwb
+

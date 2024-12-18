@@ -49,7 +49,6 @@ public class RoleTest {
 		assertNotNull(role);
 		assertEquals(1, role.getId());
 		assertEquals("member", role.getName());
-		
-		
+
 	}
 }

@@ -48,8 +48,8 @@ CREATE TABLE IF NOT EXISTS `user` (
   `email` VARCHAR(45) NULL,
   `isActive` TINYINT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `username_UNIQUE` (`username` ASC) ,
-  INDEX `fk_user_address1_idx` (`address_id` ASC) ,
+  UNIQUE INDEX `username_UNIQUE` (`username` ASC) VISIBLE,
+  INDEX `fk_user_address1_idx` (`address_id` ASC) VISIBLE,
   CONSTRAINT `fk_user_address1`
     FOREIGN KEY (`address_id`)
     REFERENCES `address` (`id`)
@@ -116,10 +116,10 @@ CREATE TABLE IF NOT EXISTS `animal` (
   `gender` VARCHAR(45) NULL,
   `isActive` TINYINT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_animal_category1_idx` (`category_id` ASC) ,
-  INDEX `fk_animal_species1_idx` (`species_id` ASC) ,
-  INDEX `fk_animal_animal1_idx` (`mom_id` ASC) ,
-  INDEX `fk_animal_animal2_idx` (`dad_id` ASC) ,
+  INDEX `fk_animal_category1_idx` (`category_id` ASC) VISIBLE,
+  INDEX `fk_animal_species1_idx` (`species_id` ASC) VISIBLE,
+  INDEX `fk_animal_animal1_idx` (`mom_id` ASC) VISIBLE,
+  INDEX `fk_animal_animal2_idx` (`dad_id` ASC) VISIBLE,
   CONSTRAINT `fk_animal_category1`
     FOREIGN KEY (`category_id`)
     REFERENCES `category` (`id`)
@@ -169,7 +169,7 @@ CREATE TABLE IF NOT EXISTS `zoo` (
   `address_id` INT NOT NULL,
   `isActive` TINYINT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_zoo_address1_idx` (`address_id` ASC) ,
+  INDEX `fk_zoo_address1_idx` (`address_id` ASC) VISIBLE,
   CONSTRAINT `fk_zoo_address1`
     FOREIGN KEY (`address_id`)
     REFERENCES `address` (`id`)
@@ -187,8 +187,8 @@ CREATE TABLE IF NOT EXISTS `role_has_user` (
   `role_id` INT NOT NULL,
   `user_id` INT NOT NULL,
   PRIMARY KEY (`role_id`, `user_id`),
-  INDEX `fk_role_has_user_user1_idx` (`user_id` ASC) ,
-  INDEX `fk_role_has_user_role1_idx` (`role_id` ASC) ,
+  INDEX `fk_role_has_user_user1_idx` (`user_id` ASC) VISIBLE,
+  INDEX `fk_role_has_user_role1_idx` (`role_id` ASC) VISIBLE,
   CONSTRAINT `fk_role_has_user_role1`
     FOREIGN KEY (`role_id`)
     REFERENCES `role` (`id`)
@@ -211,8 +211,8 @@ CREATE TABLE IF NOT EXISTS `animal_pregnancy` (
   `pregnancy_id` INT NOT NULL,
   `animal_id` INT NOT NULL,
   PRIMARY KEY (`pregnancy_id`, `animal_id`),
-  INDEX `fk_pregnancy_has_animal_animal1_idx` (`animal_id` ASC) ,
-  INDEX `fk_pregnancy_has_animal_pregnancy1_idx` (`pregnancy_id` ASC) ,
+  INDEX `fk_pregnancy_has_animal_animal1_idx` (`animal_id` ASC) VISIBLE,
+  INDEX `fk_pregnancy_has_animal_pregnancy1_idx` (`pregnancy_id` ASC) VISIBLE,
   CONSTRAINT `fk_pregnancy_has_animal_pregnancy1`
     FOREIGN KEY (`pregnancy_id`)
     REFERENCES `pregnancy` (`id`)
@@ -248,8 +248,8 @@ CREATE TABLE IF NOT EXISTS `user_has_animal` (
   `user_id` INT NOT NULL,
   `animal_id` INT NOT NULL,
   PRIMARY KEY (`user_id`, `animal_id`),
-  INDEX `fk_user_has_animal_animal1_idx` (`animal_id` ASC) ,
-  INDEX `fk_user_has_animal_user1_idx` (`user_id` ASC) ,
+  INDEX `fk_user_has_animal_animal1_idx` (`animal_id` ASC) VISIBLE,
+  INDEX `fk_user_has_animal_user1_idx` (`user_id` ASC) VISIBLE,
   CONSTRAINT `fk_user_has_animal_user1`
     FOREIGN KEY (`user_id`)
     REFERENCES `user` (`id`)
@@ -277,8 +277,8 @@ CREATE TABLE IF NOT EXISTS `event` (
   `zoo_id` INT NULL,
   `isActive` TINYINT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_event_animal1_idx` (`animal_id` ASC) ,
-  INDEX `fk_event_zoo1_idx` (`zoo_id` ASC) ,
+  INDEX `fk_event_animal1_idx` (`animal_id` ASC) VISIBLE,
+  INDEX `fk_event_zoo1_idx` (`zoo_id` ASC) VISIBLE,
   CONSTRAINT `fk_event_animal1`
     FOREIGN KEY (`animal_id`)
     REFERENCES `animal` (`id`)
@@ -301,8 +301,8 @@ CREATE TABLE IF NOT EXISTS `suggested_name_for_species` (
   `suggested_name_id` INT NOT NULL,
   `species_id` INT NOT NULL,
   PRIMARY KEY (`suggested_name_id`, `species_id`),
-  INDEX `fk_suggested_name_has_species_species1_idx` (`species_id` ASC) ,
-  INDEX `fk_suggested_name_has_species_suggested_name1_idx` (`suggested_name_id` ASC) ,
+  INDEX `fk_suggested_name_has_species_species1_idx` (`species_id` ASC) VISIBLE,
+  INDEX `fk_suggested_name_has_species_suggested_name1_idx` (`suggested_name_id` ASC) VISIBLE,
   CONSTRAINT `fk_suggested_name_has_species_suggested_name1`
     FOREIGN KEY (`suggested_name_id`)
     REFERENCES `suggested_name` (`id`)
@@ -325,8 +325,8 @@ CREATE TABLE IF NOT EXISTS `zoo_has_user` (
   `zoo_id` INT NOT NULL,
   `user_id` INT NOT NULL,
   PRIMARY KEY (`zoo_id`, `user_id`),
-  INDEX `fk_zoo_has_user_user1_idx` (`user_id` ASC) ,
-  INDEX `fk_zoo_has_user_zoo1_idx` (`zoo_id` ASC) ,
+  INDEX `fk_zoo_has_user_user1_idx` (`user_id` ASC) VISIBLE,
+  INDEX `fk_zoo_has_user_zoo1_idx` (`zoo_id` ASC) VISIBLE,
   CONSTRAINT `fk_zoo_has_user_zoo1`
     FOREIGN KEY (`zoo_id`)
     REFERENCES `zoo` (`id`)
@@ -363,8 +363,8 @@ CREATE TABLE IF NOT EXISTS `species_has_adoption_duration` (
   `adoption_duration_id` INT NOT NULL,
   `cost` DOUBLE(6,2) NULL,
   PRIMARY KEY (`species_id`, `adoption_duration_id`),
-  INDEX `fk_species_has_adoption_duration_adoption_duration1_idx` (`adoption_duration_id` ASC) ,
-  INDEX `fk_species_has_adoption_duration_species1_idx` (`species_id` ASC) ,
+  INDEX `fk_species_has_adoption_duration_adoption_duration1_idx` (`adoption_duration_id` ASC) VISIBLE,
+  INDEX `fk_species_has_adoption_duration_species1_idx` (`species_id` ASC) VISIBLE,
   CONSTRAINT `fk_species_has_adoption_duration_species1`
     FOREIGN KEY (`species_id`)
     REFERENCES `species` (`id`)

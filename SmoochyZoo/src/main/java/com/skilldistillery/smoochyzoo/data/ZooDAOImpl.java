@@ -1,19 +1,14 @@
 package com.skilldistillery.smoochyzoo.data;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.skilldistillery.jpasmoochyzoo.entities.Address;
-import com.skilldistillery.jpasmoochyzoo.entities.Animal;
 import com.skilldistillery.jpasmoochyzoo.entities.Zoo;
 
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
 import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.Query;
 import jakarta.transaction.Transactional;
 
 @Service

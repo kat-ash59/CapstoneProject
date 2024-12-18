@@ -2,7 +2,6 @@ package com.skilldistillery.smoochyzoo.data;
 
 import java.util.List;
 
-import com.skilldistillery.jpasmoochyzoo.entities.Animal;
 import com.skilldistillery.jpasmoochyzoo.entities.Category;
 
 public interface CategoryDAO 

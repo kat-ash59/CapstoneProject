@@ -10,10 +10,7 @@ import com.skilldistillery.jpasmoochyzoo.entities.Category;
 import com.skilldistillery.jpasmoochyzoo.entities.Species;
 
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
 import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.Query;
 import jakarta.transaction.Transactional;
 
 @Service

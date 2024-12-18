@@ -8,10 +8,7 @@ import org.springframework.stereotype.Service;
 import com.skilldistillery.jpasmoochyzoo.entities.Category;
 
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
 import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.Query;
 import jakarta.transaction.Transactional;
 
 @Service
@@ -104,8 +101,7 @@ public class CategoryDAOImpl implements CategoryDAO
 	@Override
 	public int deleteCategory(Category category)
 	{
-	
-		Category managedCategory = null;
+
 		int rowsDeleted = 0;
 		
 		if (category != null)

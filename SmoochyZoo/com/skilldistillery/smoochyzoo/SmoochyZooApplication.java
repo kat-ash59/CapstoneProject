@@ -1,4 +1,4 @@
-package src.main.java.com.skilldistillery.smoochyzoo;
+package com.skilldistillery.smoochyzoo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

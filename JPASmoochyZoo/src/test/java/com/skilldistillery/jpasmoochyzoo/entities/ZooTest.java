@@ -9,9 +9,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.skilldistillery.jpasmoochyzoo.entities.Zoo;
-import com.skilldistillery.jpasmoochyzoo.entities.User;
-
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -52,7 +49,7 @@ public class ZooTest {
 		assertEquals("The happy zoo of smoochy land", zoo.getAbout());
 		assertEquals("Denver",zoo.getAddress().getCity());
 		assertEquals("Smoochy's Zoo Anniversary ",zoo.getEventList().get(1).getName());
-		
-		
+
+
 	}
 }

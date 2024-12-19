@@ -22,7 +22,7 @@ public class Species
 	
 	private String description;
 	
-	@Column(name="isActive")
+	@Column(name="isactive")
 	private Boolean active = false;
 	
 	@OneToMany(mappedBy="species")

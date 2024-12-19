@@ -47,7 +47,7 @@ public class SpeciesTest {
 		assertEquals(1, species.getId());
 		assertEquals("Lion", species.getName());
 		assertEquals("Fred",species.getAnimalList().getFirst().getName());
-		
-		
+
+
 	}
 }

@@ -9,7 +9,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
@@ -23,7 +22,7 @@ public class Zoo {
 
 	private String about;
 
-	@Column(name = "isActive")
+	@Column(name = "isactive")
 	private Boolean active;
 
 	@OneToOne
@@ -95,12 +94,12 @@ public class Zoo {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj) {
 			return true;
-		if (obj == null)
+		}
+		if ((obj == null) || (getClass() != obj.getClass())) {
 			return false;
-		if (getClass() != obj.getClass())
-			return false;
+		}
 		Zoo other = (Zoo) obj;
 		return id == other.id;
 	}

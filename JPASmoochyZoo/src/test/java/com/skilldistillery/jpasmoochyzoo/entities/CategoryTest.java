@@ -46,7 +46,7 @@ public class CategoryTest {
 		assertNotNull(category);
 		assertEquals(1, category.getId());
 		assertEquals("carnivore", category.getName());
-		
-		
+
+
 	}
 }

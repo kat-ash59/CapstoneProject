@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.jpasmoochyzoo.entities.Animal;
+import com.skilldistillery.jpasmoochyzoo.entities.Category;
+import com.skilldistillery.jpasmoochyzoo.entities.Species;
 import com.skilldistillery.smoochyzoo.data.AnimalDAO;
 
 
@@ -24,22 +26,6 @@ public class AnimalController
 		this.animalDAO = dao;
 	}
 	
-	@GetMapping(path = { "/", "home.do", "index.do" })
-	public String index(Model model) 
-	{
-		return "home";
-	}
-	
-	@GetMapping("getAnimal.do")
-	public ModelAndView getAnimalById(@RequestParam("animalId" ) int id   ) {
-		ModelAndView mv = new ModelAndView();
-		Animal theAnimal = animalDAO.findAnimalById(id);
-		mv.addObject("film", theAnimal);
-		mv.setViewName("showanimalinfo");
-		
-		return mv;
-	}
-	
 	@GetMapping("getAllAnimals.do")
 	public ModelAndView findAllAnimals() {
 		ModelAndView mv = new ModelAndView();
@@ -51,4 +37,121 @@ public class AnimalController
 		
 		return mv;
 	}
+	
+	@GetMapping("getAnimalById.do")
+	public ModelAndView getAnimalById(@RequestParam("animalId" ) int id   ) {
+		ModelAndView mv = new ModelAndView();
+		Animal theAnimal = animalDAO.findAnimalById(id);
+		mv.addObject("animal", theAnimal);
+		mv.setViewName("showanimalinfo");
+		
+		return mv;
+	}
+	
+	@GetMapping("getAllAnimalsByName.do")
+	public ModelAndView findAllAnimals1() {
+		ModelAndView mv = new ModelAndView();
+		List<Animal> animalList = new ArrayList<>();
+		animalList = animalDAO.findAllAnimals();
+		
+		mv.addObject("animalList", animalList);
+		mv.setViewName("showallanimals");
+		
+		return mv;
+	}
+	
+	@GetMapping("getAllAnimalsByCategory.do")
+	public ModelAndView findAnimalsByCategory(@RequestParam("category" ) Category category   ) {
+		ModelAndView mv = new ModelAndView();
+		List<Animal> animalList = new ArrayList<>();
+		animalList = animalDAO.findAnimalsByCategory(category);
+		
+		mv.addObject("animalList", animalList);
+		mv.setViewName("showanimalsbycategory");
+		
+		return mv;
+	}
+	
+	@GetMapping("getAllAnimalsBySpecies.do")
+	public ModelAndView findAnimalsBySpecies(@RequestParam("species" ) Species species   ) {
+		ModelAndView mv = new ModelAndView();
+		List<Animal> animalList = new ArrayList<>();
+		animalList = animalDAO.findAnimalsBySpecies(species);
+		
+		mv.addObject("animalList", animalList);
+		mv.setViewName("showanimalsbyspecies");
+		
+		return mv;
+	}
+	
+	@GetMapping(path="addAnimal.do")
+	public ModelAndView addAnimal(Animal theAnimal)
+	{
+		ModelAndView mv = new ModelAndView();
+		Animal animal = new Animal();
+		
+		try
+		{
+
+			
+			if ((theAnimal.getName() != null) && (!theAnimal.getName().isEmpty()) && (!theAnimal.getName().isBlank()))
+			{
+				animal.setName(theAnimal.getName() );
+			}
+			
+			if (theAnimal.getBirthday() != null)
+			{
+				animal.setBirthday(theAnimal.getBirthday());
+			}
+			
+			if(theAnimal.getCategory() != null)
+			{
+				animal.setCategory(theAnimal.getCategory());
+			}
+			
+			if ((theAnimal.getSpecies() != null))
+			{
+				animal.setSpecies(theAnimal.getSpecies());
+			}
+			
+			if (theAnimal.getMom() != null)
+			{
+				animal.setMom(theAnimal.getMom());
+			}
+			
+			if (theAnimal.getDad() != null)
+			{
+				animal.setMom(theAnimal.getDad());
+			}
+	/*		
+			if ((theAnimal.getGender() != null) && (!theAnimal.getName().getGender()) && (!theAnimal.getGender().isBlank()))
+			{
+				animal.setGender(theAnimal.getGender());
+			}
+			
+			if(theAnimal.isActive())
+			{
+				animal.setActive(theAnimal.isActive());
+			}
+			
+			
+			//System.out.println("the needle is " + needle.toString());
+			theNewAnimal = animalDAO.addAnimal(animal);
+			System.out.println("the new animal is " + theNewAnimal.toString());
+			mv.addObject("animal", theNewAnimal);
+			mv.setViewName("confirmAnimalInsert");
+			
+		*/	
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+			
+		}
+		
+		return mv;
+	}  // end add needle, hook or cable to database
+	
+	
+	
 }

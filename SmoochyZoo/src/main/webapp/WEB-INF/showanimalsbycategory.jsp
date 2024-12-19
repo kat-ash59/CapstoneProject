@@ -20,8 +20,9 @@
 	<div class="row">
 		<c:choose>
 			<c:when test="${! empty animalList }">
+				<h3>Animals who are ${animalList.getFirst().getCategory() }</h3>
 				<table class="table-bordered">
-					<tr>
+						<tr>
 						<th>Name</th>
 						<th>Birthday</th>
 						<th>Gender</th>
@@ -30,25 +31,11 @@
 					</tr>
 					<c:forEach items="${animalList}" var="animal">
 						 <tr>
-						 	<td><a href = "getAnimal.do?animalId=${animal.id}">  ${animal.name }</a></td>
+						 	<td><a href = "getAnimal.do?animalId=${animal.id}">  ${film.name }</a></td>
 						 	<td>${animal.birthday }</td>
 						 	<td>${animal.gender }</td>
-						 	<c:choose>
-						 		<c:when test="${animal.mom == null }">
-						 			<td>No Information about the Animal's Mom</td>
-						 		</c:when>
-						 		<c:otherwise>
-						 			<td>${animal.mom.name }</td>
-						 		</c:otherwise>
-						 	</c:choose>
-						 	<c:choose>
-						 		<c:when test="${animal.dad == null }">
-						 			<td>No Information about the Animal's Dad</td>
-						 		</c:when>
-						 		<c:otherwise>
-						 			<td>${animal.dad.name }</td>
-						 		</c:otherwise>
-						 	</c:choose>
+						 	<td>${animal.mom }</td>
+						 	<td>${animal.dad }</td>
 						</tr>
 					</c:forEach>
 				</table>

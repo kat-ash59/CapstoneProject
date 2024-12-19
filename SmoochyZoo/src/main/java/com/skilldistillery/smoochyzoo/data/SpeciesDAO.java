@@ -9,7 +9,7 @@ public interface SpeciesDAO
 
 	public Species findSpeciesById(int id);
 
-	public List<Species> findAllCategories();
+	public List<Species> findAllSpecies();
 
 	public Species addSpecies(Species species);
 

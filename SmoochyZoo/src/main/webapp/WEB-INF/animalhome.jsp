@@ -1,3 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<%@ taglib uri="jakarta.tags.core" prefix="c" %>    
+  
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Smoochy Zoo's Animals</title>
+<%@  include file="bootstraphead.jsp" %>
+</head>
+<body>
 <h1>Welcome To Smoochy Zoo!</h1>
 
 	<strong>Get a list of all the animals in the Zoo</strong>
@@ -12,14 +25,14 @@
 		<br>
 		<br>
 			<form action="getAnimalById.do" method="GET">
-	 		 Needle ID: <input type="number" name="animal" />
+	 		 Animal ID: <input type="number" name="animal" />
 	  		<input type="submit" value="Show Animal" />
 		</form>
 		<strong>Find the Animals by the name provided</strong>
 		<br>
 		<br>
 		<form action="getAllAnimalsByName.do" method="GET">
-	 		 Needle ID: <input type="text" name="name" />
+	 		 Animal Name: <input type="text" name="name" />
 	  		<input type="submit" value="Show Animals with the name provided" />
 		</form>
 		<br>
@@ -28,7 +41,11 @@
 		<br>
 		<br>
 		<form action="getAllAnimalsBySpecies.do" method="GET">
-	 		 Needle ID: <input type="text" name="species" />
+			<select name="speciesId">
+				<c:forEach items="${speciesList}" var="species">
+				    <option value="${species.id}">${species.name }</option>
+				 </c:forEach>
+			</select>
 	  		<input type="submit" value="Show Animals with the species provided" />
 		</form>
 		<br>
@@ -37,6 +54,8 @@
 		<br>
 		<br>
 			<form action="getAnimalByCategory.do" method="GET">
-	 		 Needle ID: <input type="text" name="category" />
+	 		 Category: <input type="text" name="category" />
 	  		<input type="submit" value="Show Animals with the category provided" />
 		</form>
+</body>
+</html>

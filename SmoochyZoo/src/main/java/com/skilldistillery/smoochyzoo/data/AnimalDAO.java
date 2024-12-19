@@ -20,7 +20,7 @@ public interface AnimalDAO
 
 	public List<Animal> findAnimalsByCategory(Category category);
 
-	public List<Animal> findAnimalsBySpecies(Species species);
+	public List<Animal> findAnimalsBySpecies(int id);
 
 	public List<Animal> findAnimalsByName(String nameRequested);
 

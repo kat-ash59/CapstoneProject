@@ -73,10 +73,11 @@ public class AnimalController
 	}
 	
 	@GetMapping("getAllAnimalsBySpecies.do")
-	public ModelAndView findAnimalsBySpecies(@RequestParam("species" ) Species species   ) {
+	public ModelAndView findAnimalsBySpecies(@RequestParam("speciesId" ) int id   ) {
 		ModelAndView mv = new ModelAndView();
 		List<Animal> animalList = new ArrayList<>();
-		animalList = animalDAO.findAnimalsBySpecies(species);
+		
+		animalList = animalDAO.findAnimalsBySpecies(id);
 		
 		mv.addObject("animalList", animalList);
 		mv.setViewName("showanimalsbyspecies");

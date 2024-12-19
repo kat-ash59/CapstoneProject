@@ -9,9 +9,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.skilldistillery.jpasmoochyzoo.entities.Species;
-import com.skilldistillery.jpasmoochyzoo.entities.User;
-
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -50,7 +47,7 @@ public class SpeciesTest {
 		assertEquals(1, species.getId());
 		assertEquals("Lion", species.getName());
 		assertEquals("Fred",species.getAnimalList().getFirst().getName());
-		
-		
+
+
 	}
 }

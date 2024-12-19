@@ -9,9 +9,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.skilldistillery.jpasmoochyzoo.entities.Category;
-import com.skilldistillery.jpasmoochyzoo.entities.User;
-
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -49,7 +46,7 @@ public class CategoryTest {
 		assertNotNull(category);
 		assertEquals(1, category.getId());
 		assertEquals("carnivore", category.getName());
-		
-		
+
+
 	}
 }

@@ -1,17 +1,14 @@
-package com.skilldistillery.smoochyzoo.controllers;
+package src.main.java.com.skilldistillery.smoochyzoo.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.skilldistillery.jpasmoochyzoo.entities.Animal;
-import com.skilldistillery.smoochyzoo.data.AnimalDAO;
-
-import ch.qos.logback.core.model.Model;
 
 
 @Controller

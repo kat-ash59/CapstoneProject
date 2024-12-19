@@ -13,6 +13,7 @@ import com.skilldistillery.jpasmoochyzoo.entities.Animal;
 import com.skilldistillery.jpasmoochyzoo.entities.Category;
 import com.skilldistillery.jpasmoochyzoo.entities.Species;
 import com.skilldistillery.smoochyzoo.data.AnimalDAO;
+import com.skilldistillery.smoochyzoo.data.CategoryDAO;
 
 
 
@@ -20,6 +21,7 @@ import com.skilldistillery.smoochyzoo.data.AnimalDAO;
 public class AnimalController 
 {
 	private final AnimalDAO animalDAO;
+	
 	
 	public AnimalController(AnimalDAO dao)
 	{
@@ -61,13 +63,12 @@ public class AnimalController
 	}
 	
 	@GetMapping("getAllAnimalsByCategory.do")
-	public ModelAndView findAnimalsByCategory(@RequestParam("category" ) Category category   ) {
+	public ModelAndView findAnimalsByCategory(@RequestParam("categoryId" ) int id   ) {
 		ModelAndView mv = new ModelAndView();
-		List<Animal> animalList = new ArrayList<>();
-		animalList = animalDAO.findAnimalsByCategory(category);
+		List<Animal> animalList = animalDAO.findAnimalsByCategory(id);
 		
 		mv.addObject("animalList", animalList);
-		mv.setViewName("showanimalsbycategory");
+		mv.setViewName("showallanimals");
 		
 		return mv;
 	}
@@ -75,12 +76,10 @@ public class AnimalController
 	@GetMapping("getAllAnimalsBySpecies.do")
 	public ModelAndView findAnimalsBySpecies(@RequestParam("speciesId" ) int id   ) {
 		ModelAndView mv = new ModelAndView();
-		List<Animal> animalList = new ArrayList<>();
-		
-		animalList = animalDAO.findAnimalsBySpecies(id);
+		List<Animal> animalList =  animalDAO.findAnimalsBySpecies(id);
 		
 		mv.addObject("animalList", animalList);
-		mv.setViewName("showanimalsbyspecies");
+		mv.setViewName("showallanimals");
 		
 		return mv;
 	}

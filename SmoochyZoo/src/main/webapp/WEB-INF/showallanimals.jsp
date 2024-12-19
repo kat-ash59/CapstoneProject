@@ -31,7 +31,14 @@
 					<c:forEach items="${animalList}" var="animal">
 						 <tr>
 						 	<td><a href = "getAnimal.do?animalId=${animal.id}">  ${animal.name }</a></td>
-						 	<td>${animal.birthday }</td>
+						 	<c:choose>
+						 		<c:when test="${animal.birthday == null }">
+						 			<td>No Information about the Animal's Birthday</td>
+						 		</c:when>
+						 		<c:otherwise>
+						 			<td>${animal.birthday }</td>
+						 		</c:otherwise>
+						 	</c:choose>
 						 	<td>${animal.gender }</td>
 						 	<c:choose>
 						 		<c:when test="${animal.mom == null }">

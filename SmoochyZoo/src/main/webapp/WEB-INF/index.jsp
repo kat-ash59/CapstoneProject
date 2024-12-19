@@ -15,26 +15,27 @@ body {
 </style>
 </head>
 <body>
-	<h2>Welcome to the Smoochy Zoo</h2>
-
-	<p>
-	We are a small zoo that has a huge heart and is known for our Animals who love to Smooch!
-	Please feel free to explore our zoo and meet out animals.
-	<br>
-	Our Zoo is a place where a number of wildlife species are housed in separate enclosures. 
-	Habitats similar to the natural habitats of the animals are re-created for them to live in. 
-	The animals are fed and are given water to drink by our wonderful staff. 
-	They are kept in hygienic surroundings. 
-	An animal that falls ill or develops a disease is given medical attention by our trained 
-	veterinarians and nursed back to health.
-	<br>
-	Mammals, birds and reptiles as also aquatic animals are kept in zoos. 
-	Our visitors are allowed to visit zoos and take a look at the animals. 
-	Children love to visit our Smoochy Zoo.
-	</p>
-	
-	<jsp:include page="animalhome.jsp" />
-
+	<div class="container">
+		<div class="row">
+			<h2>Welcome to the Smoochy Zoo</h2>
+		
+			<p>
+			We are a small zoo that has a huge heart and is known for our Animals who love to Smooch!
+			Please feel free to explore our zoo and meet our animals.
+			<br>
+			Our Zoo is a place where a number of wildlife species are housed in separate enclosures. 
+			Our habitats mimic the habitats that our animals would find in the wild. 
+			The animals are fed and are given water to drink and are kept in hygienic surroundings by our wonderful staff. 
+			An animal that falls ill or develops a disease is given medical attention by our trained 
+			veterinarians and nursed back to health.
+			<br>
+			Mammals, birds and reptiles are precious residents of our zoo. 
+			Children especially love to visit our Smoochy Zoo.
+			</p>
+			
+			<jsp:include page="animalhome.jsp" />
+		</div>
+	</div>
 
 </body>
 </html>

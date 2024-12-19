@@ -23,13 +23,13 @@
 		<br>
 		<strong>Find the Animal by it's id</strong>
 		<br>
-		<br>
 			<form action="getAnimalById.do" method="GET">
-	 		 Animal ID: <input type="number" name="animal" />
+	 		 Animal ID: <input type="number" name="animalId" />
 	  		<input type="submit" value="Show Animal" />
 		</form>
-		<strong>Find the Animals by the name provided</strong>
 		<br>
+		<br>
+		<strong>Find the Animals by the name provided</strong>
 		<br>
 		<form action="getAllAnimalsByName.do" method="GET">
 	 		 Animal Name: <input type="text" name="name" />
@@ -39,7 +39,7 @@
 		<br>
 		<strong>Find the Animals by their species</strong>
 		<br>
-		<br>
+		<h1>"${speciesList }"</h1>
 		<form action="getAllAnimalsBySpecies.do" method="GET">
 			<select name="speciesId">
 				<c:forEach items="${speciesList}" var="species">
@@ -53,8 +53,13 @@
 		<strong>Find the Animals by their category</strong>
 		<br>
 		<br>
-			<form action="getAnimalByCategory.do" method="GET">
-	 		 Category: <input type="text" name="category" />
+			<h1>"${categoryList }"</h1>
+			<form action="getAllAnimalsByCategory" method="GET">
+	 		<select name="categoryId">
+				<c:forEach items="${categoryList}" var="category">
+				    <option value="${category.id}">${category.name }</option>
+				</c:forEach>
+			</select>
 	  		<input type="submit" value="Show Animals with the category provided" />
 		</form>
 </body>

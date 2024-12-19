@@ -34,7 +34,6 @@ public class Category
 		}
 		
 		if (!animalList.contains(animal)) {
-			animal.setActive(true);
 			animalList.add(animal);
 		}
 	}
@@ -86,9 +85,11 @@ public class Category
 		this.animalList = animalList;
 	}
 
+	
+
 	@Override
 	public String toString() {
-		return "Category [id=" + id + ", name=" + name + ", description=" + description + ", isActive" + active + "]";
+		return "Category [id=" + id + ", name=" + name + ", description=" + description + ", active=" + active + "]";
 	}
 
 	@Override

@@ -18,7 +18,7 @@ public interface AnimalDAO
 
 	public int deleteAnimal(Animal animal);
 
-	public List<Animal> findAnimalsByCategory(Category category);
+	public List<Animal> findAnimalsByCategory(int id);
 
 	public List<Animal> findAnimalsBySpecies(int id);
 

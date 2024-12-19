@@ -88,9 +88,7 @@ public class AnimalController
 	public ModelAndView addAnimal(Animal theAnimal)
 	{
 		ModelAndView mv = new ModelAndView();
-		Boolean successfulUpdate = false;
 		Animal animal = new Animal();
-		Animal theNewAnimal = null;
 		
 		try
 		{

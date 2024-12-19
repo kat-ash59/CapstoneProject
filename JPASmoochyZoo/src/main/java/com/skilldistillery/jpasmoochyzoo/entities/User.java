@@ -1,6 +1,7 @@
 package com.skilldistillery.jpasmoochyzoo.entities;
 
 import java.util.Objects;
+import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -8,6 +9,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
@@ -21,11 +24,11 @@ public class User {
 
 	@Column(name = "username")
 	private String username;
-	
+
 	@Column(name = "password")
 	private String password;
 
-	@Column(name="enabled")
+	@Column(name = "enabled")
 	private Boolean enabled;
 
 	@Column(name = "about_me")
@@ -33,17 +36,20 @@ public class User {
 
 	@Column(name = "privacy_check")
 	private Boolean privacyCheck;
-	
+
 	@ManyToOne
-	@JoinColumn(name="address_id")
+	@JoinColumn(name = "address_id")
 	private Address address;
-	
-	
-	@Column(name="isActive")
-	private Boolean isActive; 
-	
-	@Column(name="email")
+
+	@Column(name = "isActive")
+	private Boolean isActive;
+
+	@Column(name = "email")
 	private String email;
+
+	@ManyToMany
+	@JoinTable(name = "role_has_user", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+	private Set<Role> roles;
 
 	public User() {
 	}
@@ -54,6 +60,14 @@ public class User {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public Set<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
 	}
 
 	public String getUsername() {
@@ -144,5 +158,4 @@ public class User {
 				+ isActive + ", email=" + email + "]";
 	}
 
-	
 }

@@ -13,7 +13,6 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "event")
 public class Event {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -31,7 +31,7 @@
 					</tr>
 					<c:forEach items="${animalList}" var="animal">
 						 <tr>
-						 	<td><a href = "getAnimal.do?animalId=${animal.id}">  ${film.name }</a></td>
+						 	<td><a href = "getAnimal.do?animalId=${animal.id}">  ${animal.name }</a></td>
 						 	<td>${animal.birthday }</td>
 						 	<td>${animal.gender }</td>
 						 	<td>${animal.mom }</td>

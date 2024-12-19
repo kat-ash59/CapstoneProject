@@ -57,9 +57,9 @@ public class AnimalDAOImpl implements AnimalDAO
 	}
 	
 	@Override
-	public List<Animal> findAnimalsBySpecies(Species species)
+	public List<Animal> findAnimalsBySpecies(int id)
 	{
-		Species spec = em.find(Species.class, species.getId());
+		Species spec = em.find(Species.class, id);
 		
 		List<Animal> animalList = spec.getAnimalList();
 		

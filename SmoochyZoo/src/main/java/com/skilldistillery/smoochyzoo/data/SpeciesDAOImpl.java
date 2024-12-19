@@ -31,9 +31,9 @@ public class SpeciesDAOImpl implements SpeciesDAO
 	}
 	
 	@Override
-	public List<Species> findAllCategories()
+	public List<Species> findAllSpecies()
 	{
-		List<Species> speciesList = new ArrayList<>();
+		List<Species> speciesList;
 		String jpql = "Select species from Species species";
 		
 		speciesList = em.createQuery(jpql, Species.class).getResultList();

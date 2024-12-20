@@ -60,5 +60,7 @@
 			</select>
 	  		<input type="submit" value="Show Animals with the category provided" />
 		</form>
+		<br>
+		<br>
 </body>
 </html>

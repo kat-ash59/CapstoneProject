@@ -1,6 +1,6 @@
 package com.skilldistillery.jpasmoochyzoo.entities;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
@@ -23,7 +23,7 @@ public class Animal
 	
 	private String name;
 	
-	private LocalDateTime birthday;
+	private LocalDate birthday;
 	
 	private String gender;
 	
@@ -78,21 +78,21 @@ public class Animal
 	}
 
 
-
-
-	public LocalDateTime getBirthday() {
+	public LocalDate getBirthday() {
 		return birthday;
 	}
 
-
-
-
-	public void setBirthday(LocalDateTime birthday) {
+	public void setBirthday(LocalDate birthday) {
 		this.birthday = birthday;
 	}
 
+	public Boolean getIsActive() {
+		return isActive;
+	}
 
-
+	public void setIsActive(Boolean isActive) {
+		this.isActive = isActive;
+	}
 
 	public String getGender() {
 		return gender;

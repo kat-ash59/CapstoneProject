@@ -34,6 +34,7 @@ body {
 			</p>
 			
 			<jsp:include page="animalhome.jsp" />
+			<jsp:include page="animalCRUD.jsp" />
 		</div>
 	</div>
 

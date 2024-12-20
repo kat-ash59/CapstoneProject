@@ -15,6 +15,9 @@ body {
 </style>
 </head>
 <body>
+<!-- included a nav bar for login  -->
+ <jsp:include page="nav.jsp" />
+
 	<div class="container">
 		<div class="row">
 			<h2>Welcome to the Smoochy Zoo</h2>

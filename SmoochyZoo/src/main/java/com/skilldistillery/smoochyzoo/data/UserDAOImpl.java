@@ -31,8 +31,12 @@ public class UserDAOImpl implements UserDAO {
 	        System.out.println("User found: " + user);  // Print the result
 	        return user;
 	    } catch (Exception e) {
-	        System.out.println("Error: " + e.getMessage());
-	        return null;
+	    	// Log the exception for better insight
+	        System.err.println("Error: " + e.getMessage());
+	        e.printStackTrace();
+
+
+	        throw new RuntimeException("Error fetching user by username and password", e);
 	    }
 	}
 
@@ -48,8 +52,9 @@ public class UserDAOImpl implements UserDAO {
 		if (existingUser != null) {
 			existingUser.setPassword(user.getPassword());
 			existingUser.setUsername(user.getUsername());
+			return existingUser;
 		}
-		return null;
+		return null; 
 	}
 
 }

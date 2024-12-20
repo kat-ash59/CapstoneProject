@@ -36,6 +36,9 @@ body {
 			Children especially love to visit our Smoochy Zoo.
 			</p>
 			
+			<!-- button for smoochy zoo info  -->
+			<a href="zooInfo" class="btn btn-primary">Learn More About Smoochy Zoo</a>
+
 			<jsp:include page="animalhome.jsp" />
 			<jsp:include page="animalCRUD.jsp" />
 		</div>

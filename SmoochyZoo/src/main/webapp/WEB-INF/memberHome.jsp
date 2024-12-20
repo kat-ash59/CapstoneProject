@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="nav.jsp" />
 <h1>Member Home - Smoochy Zoo</h1>
     
     <!-- starting code to get a base for these pages -->

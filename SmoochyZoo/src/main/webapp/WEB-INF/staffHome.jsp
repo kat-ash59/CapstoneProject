@@ -5,8 +5,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Staff Home - Smoochy Zoo</title>
+<%@  include file="bootstraphead.jsp" %>
+ <style>
+ body { 
+	background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)),
+                  url("images/SmoochyZoo.jpg");
+}
+</style>
 </head>
 <body>
+<jsp:include page="nav.jsp" />
 
 <!-- starting code to get a base for these pages -->
 <h1>Welcome, Staff Member!</h1>
@@ -23,5 +31,6 @@
     <form action="logout.do" method="post">
         <button type="submit">Logout</button>
     </form>
+    <%@  include file="bootstrapfooter.jsp" %>
 </body>
 </html>

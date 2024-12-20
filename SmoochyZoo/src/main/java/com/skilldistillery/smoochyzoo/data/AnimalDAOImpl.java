@@ -40,19 +40,20 @@ public class AnimalDAOImpl implements AnimalDAO
 		
 		animalList = em.createQuery(jpql, Animal.class).getResultList();
 		
+		int size = animalList.size();
+		
 		return animalList;
 	}
 	
 	@Override
-	public List<Animal> findAnimalsByCategory(Category category)
+	public List<Animal> findAnimalsByCategory(int id)
 	{
-		Category cat = em.find(Category.class, category.getId());
+		Category cat = em.find(Category.class, id);
 		
 		List<Animal> animalList = cat.getAnimalList();
 		
-		animalList.size();
+		int size = animalList.size();
 
-		
 		return animalList;
 	}
 	
@@ -63,7 +64,7 @@ public class AnimalDAOImpl implements AnimalDAO
 		
 		List<Animal> animalList = spec.getAnimalList();
 		
-		animalList.size();
+		int size = animalList.size();
 
 		
 		return animalList;
@@ -78,7 +79,7 @@ public class AnimalDAOImpl implements AnimalDAO
 		animalList = em.createQuery(jpql,Animal.class)
 				.setParameter("nameRequested",nameRequested).getResultList();
 		
-		animalList.size();
+		int size = animalList.size();
 		
 		return animalList;
 	}
@@ -93,7 +94,7 @@ public class AnimalDAOImpl implements AnimalDAO
 
 
 		// return the Animal object
-		System.out.println(animal.toString());
+		//System.out.println(animal.toString());
 		
 		return animal;
 		
@@ -149,7 +150,7 @@ public class AnimalDAOImpl implements AnimalDAO
 
 		
 		// return the updated Animal object
-		System.out.println("\nUpdated Animal = " + updatedAnimal.toString());
+		//System.out.println("\nUpdated Animal = " + updatedAnimal.toString());
 		
 		return updatedAnimal;
 		

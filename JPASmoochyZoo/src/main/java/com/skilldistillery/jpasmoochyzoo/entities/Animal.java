@@ -41,11 +41,11 @@ public class Animal
 	private Animal dad;
 
 	@ManyToOne
-	@JoinColumn(name="category_Id")
+	@JoinColumn(name="category_id")
 	private Category category;
 	
 	@ManyToOne
-	@JoinColumn(name="species_Id")
+	@JoinColumn(name="species_id")
 	private Species species;
 
 	@OneToMany(mappedBy="animal")

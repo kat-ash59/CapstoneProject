@@ -39,7 +39,6 @@
 		<br>
 		<strong>Find the Animals by their species</strong>
 		<br>
-		<h1>"${speciesList }"</h1>
 		<form action="getAllAnimalsBySpecies.do" method="GET">
 			<select name="speciesId">
 				<c:forEach items="${speciesList}" var="species">
@@ -53,8 +52,7 @@
 		<strong>Find the Animals by their category</strong>
 		<br>
 		<br>
-			<h1>"${categoryList }"</h1>
-			<form action="getAllAnimalsByCategory" method="GET">
+			<form action="getAllAnimalsByCategory.do" method="GET">
 	 		<select name="categoryId">
 				<c:forEach items="${categoryList}" var="category">
 				    <option value="${category.id}">${category.name }</option>

@@ -40,6 +40,8 @@ public class AnimalDAOImpl implements AnimalDAO
 		
 		animalList = em.createQuery(jpql, Animal.class).getResultList();
 		
+		int size = animalList.size();
+		
 		return animalList;
 	}
 	

@@ -66,7 +66,7 @@ public class AnimalController
 	public ModelAndView findAnimalsByCategory(@RequestParam("categoryId" ) int id   ) {
 		ModelAndView mv = new ModelAndView();
 		List<Animal> animalList = animalDAO.findAnimalsByCategory(id);
-		
+		System.out.println("Animal list by category " + animalList.toString());
 		mv.addObject("animalList", animalList);
 		mv.setViewName("showallanimals");
 		

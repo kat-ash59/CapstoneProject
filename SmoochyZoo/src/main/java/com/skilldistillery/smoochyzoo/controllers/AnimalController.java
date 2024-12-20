@@ -6,8 +6,10 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.jpasmoochyzoo.entities.Animal;
 import com.skilldistillery.jpasmoochyzoo.entities.Category;
@@ -66,7 +68,7 @@ public class AnimalController
 	public ModelAndView findAnimalsByCategory(@RequestParam("categoryId" ) int id   ) {
 		ModelAndView mv = new ModelAndView();
 		List<Animal> animalList = animalDAO.findAnimalsByCategory(id);
-		System.out.println("Animal list by category " + animalList.toString());
+		
 		mv.addObject("animalList", animalList);
 		mv.setViewName("showallanimals");
 		
@@ -84,15 +86,15 @@ public class AnimalController
 		return mv;
 	}
 	
-	@GetMapping(path="addAnimal.do")
-	public ModelAndView addAnimal(Animal theAnimal)
+	@PostMapping(path="addAnimal.do")
+	public ModelAndView addAnimal(Animal theAnimal, RedirectAttributes redir)
 	{
 		ModelAndView mv = new ModelAndView();
 		Animal animal = new Animal();
+		Animal theNewAnimal = null;
 		
 		try
 		{
-
 			
 			if ((theAnimal.getName() != null) && (!theAnimal.getName().isEmpty()) && (!theAnimal.getName().isBlank()))
 			{
@@ -123,8 +125,8 @@ public class AnimalController
 			{
 				animal.setMom(theAnimal.getDad());
 			}
-	/*		
-			if ((theAnimal.getGender() != null) && (!theAnimal.getName().getGender()) && (!theAnimal.getGender().isBlank()))
+			
+			if ((theAnimal.getGender() != null) && (!theAnimal.getGender().isEmpty()) && (!theAnimal.getGender().isBlank()))
 			{
 				animal.setGender(theAnimal.getGender());
 			}
@@ -135,23 +137,33 @@ public class AnimalController
 			}
 			
 			
-			//System.out.println("the needle is " + needle.toString());
-			theNewAnimal = animalDAO.addAnimal(animal);
-			System.out.println("the new animal is " + theNewAnimal.toString());
-			mv.addObject("animal", theNewAnimal);
-			mv.setViewName("confirmAnimalInsert");
 			
-		*/	
+			theNewAnimal = animalDAO.addAnimal(animal);
+			
+			Animal sillyAnimal =  animalDAO.findAnimalById(theNewAnimal.getId());
+			
+			mv.setViewName("redirect:animalAdded.do");
+			redir.addFlashAttribute("animal", sillyAnimal); 
+		
 		}
 		catch (Exception e)
 		{
 			e.printStackTrace();
-			
 		}
 		
+		
 		return mv;
-	}  // end add needle, hook or cable to database
+	}  // end add animal to database
 	
-	
+	@GetMapping("animalAdded.do")
+	public ModelAndView confirmation(Model model)
+	{
+		System.out.println("In animalAdded.do");
+		System.out.println("animal = " + model.getAttribute("animal"));
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("confirmAnimalInsert");
+		return mv;
+	}
 	
 }

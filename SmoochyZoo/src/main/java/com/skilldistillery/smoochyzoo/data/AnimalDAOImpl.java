@@ -91,12 +91,8 @@ public class AnimalDAOImpl implements AnimalDAO
 		animal.setActive(true);
 		
 		em.persist(animal);
-
-
-		// return the Animal object
-		//System.out.println(animal.toString());
 		
-		return animal;
+		return em.find(Animal.class, animal.getId());
 		
 	} // end add animal
 	

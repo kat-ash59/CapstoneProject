@@ -22,13 +22,36 @@ body {
 </div>
 <div class="row">
 	<c:choose>
-		<c:when test="${! empty animal } && ${animal.active != false }">
+		<c:when test="${! empty animal }">
 	 		<h5>
-		  		Name: ${animal.name} <br>
-		  		Birthday: (${animal.birthday}) <br> 
-		  		Gender: ${animal.gender } <br>
-		  		Mom: ${animal.getMom().getName()} <br>
-		  		Dad: ${animal.getDad().getName()} 
+		  		<a href = "getAnimal.do?animalId=${animal.id}"> </a>
+		  					Animal's species: ${animal.species.name}<br>
+		  					Animal's name: ${animal.name }<br>
+						 	<c:choose>
+						 		<c:when test="${animal.birthday == null }">
+						 			Birthday: No Information about the Animal's Birthday<br>
+						 		</c:when>
+						 		<c:otherwise>
+						 			Birthday: ${animal.birthday }<br>
+						 		</c:otherwise>
+						 	</c:choose>
+						 	Gender: ${animal.gender }<br>
+						 	<c:choose>
+						 		<c:when test="${animal.mom == null }">
+						 			Mom: No Information about the Animal's Mom<br>
+						 		</c:when>
+						 		<c:otherwise>
+						 			Mom: ${animal.mom.name }<br>
+						 		</c:otherwise>
+						 	</c:choose>
+						 	<c:choose>
+						 		<c:when test="${animal.dad == null }">
+						 			Dad: No Information about the Animal's Dad<br>
+						 		</c:when>
+						 		<c:otherwise>
+						 			Dad: ${animal.dad.name }<br>
+						 		</c:otherwise>
+						 	</c:choose>
 		  		
 		  	</h5>
 	 	</c:when>

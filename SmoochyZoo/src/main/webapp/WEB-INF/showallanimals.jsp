@@ -22,6 +22,7 @@
 			<c:when test="${! empty animalList }">
 				<table class="table-bordered">
 					<tr>
+						<th>Species</th>
 						<th>Name</th>
 						<th>Birthday</th>
 						<th>Gender</th>
@@ -30,7 +31,8 @@
 					</tr>
 					<c:forEach items="${animalList}" var="animal">
 						 <tr>
-						 	<td><a href = "getAnimal.do?animalId=${animal.id}">  ${animal.name }</a></td>
+						 	<td>${animal.species.name }</td>
+						 	<td>${animal.name }</td>
 						 	<c:choose>
 						 		<c:when test="${animal.birthday == null }">
 						 			<td>No Information about the Animal's Birthday</td>

@@ -38,8 +38,7 @@ body {
 			</p>
 			
 			<!-- button for smoochy zoo info  -->
-			<a href="/zooInfo" class="btn btn-primary">Learn More About Smoochy Zoo</a>
-
+			<a href="/zooInfo.jsp" class="btn btn-primary">Learn More About Smoochy Zoo</a>
 			
 		</div>
 	</div>

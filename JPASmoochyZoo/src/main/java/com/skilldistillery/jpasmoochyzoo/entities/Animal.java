@@ -28,7 +28,7 @@ public class Animal
 	private String gender;
 	
 	@Column(name="isactive")
-	private Boolean isactive = false;
+	private Boolean active = false;
 	
 
 	@ManyToOne
@@ -88,12 +88,13 @@ public class Animal
 
 
 
-	public Boolean getIsactive() {
-		return isactive;
+
+	public Boolean getActive() {
+		return active;
 	}
 
-	public void setIsactive(Boolean isactive) {
-		this.isactive = isactive;
+	public void setActive(Boolean active) {
+		this.active = active;
 	}
 
 	public String getGender() {
@@ -199,6 +200,7 @@ public class Animal
 		Animal other = (Animal) obj;
 		return id == other.id;
 	}
+
 
 	
 	

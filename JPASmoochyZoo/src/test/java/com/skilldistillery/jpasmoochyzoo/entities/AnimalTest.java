@@ -48,7 +48,7 @@ class AnimalTest {
 		assertEquals(2014,animal.getBirthday().getYear());
 		assertEquals("Lion",animal.getSpecies().getName());
 		assertEquals("carnivore",animal.getCategory().getName());
-		assertNull(animal.isActive());
+		assertNull(animal.getActive());
 		assertEquals("Fred's Birthday Celebration",animal.getEventList().getFirst().getName());
 	}
 

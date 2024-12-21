@@ -131,9 +131,9 @@ public class AnimalController
 				animal.setGender(theAnimal.getGender());
 			}
 			
-			if(theAnimal.isActive())
+			if(theAnimal.getActive())
 			{
-				animal.setActive(theAnimal.isActive());
+				animal.setActive(theAnimal.getActive());
 			}
 			
 			

@@ -19,7 +19,8 @@
 		<h2>Animal Care Information</h2>
 		<!-- Provide options for staff to manage animals, schedules, etc. -->
 	</div>
-
+	<jsp:include page="animalhome.jsp"></jsp:include>
+	<jsp:include page="animalCRUD.jsp"></jsp:include>
 	<!-- Logout Button -->
 	<form action="logout.do" method="post">
 		<button type="submit">Logout</button>

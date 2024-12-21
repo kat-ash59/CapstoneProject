@@ -12,11 +12,7 @@
 </head>
 <body>
 <div class="container">
-	<div class="row">
-		<a href="index.do"> Home</a>
-		<br>
-		<br>
-	</div>
+	
 	<div class="row">
 		<c:choose>
 			<c:when test="${! empty animalList }">

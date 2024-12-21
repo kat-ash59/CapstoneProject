@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Smoochy Zoo's Animal</title>
+<%@  include file="bootstraphead.jsp"%>
 <style>
 body { 
 	background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)),
@@ -17,9 +18,6 @@ body {
 </head>
 <body>
 <div class="container">
-<div class="row">
-	<a href="index.do"> Home</a>
-</div>
 <div class="row">
 	<c:choose>
 		<c:when test="${! empty animal }">
@@ -61,6 +59,6 @@ body {
 	 </c:choose>
 </div>
 </div>
-
+<%@  include file="bootstrapfooter.jsp"%>
 </body>
 </html>

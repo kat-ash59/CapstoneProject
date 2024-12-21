@@ -16,6 +16,7 @@ import com.skilldistillery.jpasmoochyzoo.entities.Category;
 import com.skilldistillery.jpasmoochyzoo.entities.Species;
 import com.skilldistillery.smoochyzoo.data.AnimalDAO;
 import com.skilldistillery.smoochyzoo.data.CategoryDAO;
+import com.skilldistillery.smoochyzoo.data.SpeciesDAO;
 
 
 
@@ -23,10 +24,14 @@ import com.skilldistillery.smoochyzoo.data.CategoryDAO;
 public class AnimalController 
 {
 	private final AnimalDAO animalDAO;
+	private final SpeciesDAO speciesDAO;
+	private final CategoryDAO categoryDAO;
 	
 	
-	public AnimalController(AnimalDAO dao)
+	public AnimalController(AnimalDAO dao, SpeciesDAO speciesDAO, CategoryDAO categoryDAO)
 	{
+		this.speciesDAO = speciesDAO;
+		this.categoryDAO = categoryDAO;
 		this.animalDAO = dao;
 	}
 	
@@ -115,7 +120,7 @@ public class AnimalController
 			{
 				animal.setSpecies(theAnimal.getSpecies());
 			}
-			
+			System.out.println("theAnimalSpeies " + theAnimal.getSpecies());
 			if (theAnimal.getMom() != null)
 			{
 				animal.setMom(theAnimal.getMom());
@@ -167,3 +172,12 @@ public class AnimalController
 	}
 	
 }
+
+
+
+
+
+
+
+
+

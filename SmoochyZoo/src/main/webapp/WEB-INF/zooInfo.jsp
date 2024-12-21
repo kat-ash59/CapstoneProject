@@ -40,7 +40,6 @@ body {
 
 			<h3>Come Give us a visit!</h3>
 			<p>121 Main Street Denver, Colorado 80120</p>
-
 		</div>
 		<!-- Button to go back to home page -->
 		<a href="index.do" class="btn btn-secondary">Back to Home</a>

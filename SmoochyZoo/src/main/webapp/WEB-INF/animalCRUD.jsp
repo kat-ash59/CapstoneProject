@@ -13,11 +13,6 @@
 <body>
 <div class="container">
 		<div class="row">
-			<a href="index.do"> Home</a>
-			<br>
-			<br>
-		</div>
-		<div class="row">
 		  	 <div id="outer">
 		  	 <strong>Add an animal to our Smoochy Zoo</strong>
 		<br>

@@ -7,14 +7,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Smoochy Zoo</title>
+<%@  include file="bootstraphead.jsp"%>
 <style>
 body { 
 	background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)),
-                  url("images/underconstruct.jpg");
+                  url("images/SmoochyZoo.jpg");
 }
 </style>
 </head>
 <body>
+<!-- included a nav bar for login  -->
+ <jsp:include page="nav.jsp" />
+
 	<div class="container">
 		<div class="row">
 			<h2>Welcome to the Smoochy Zoo</h2>
@@ -33,10 +37,12 @@ body {
 			Children especially love to visit our Smoochy Zoo.
 			</p>
 			
-			<jsp:include page="animalhome.jsp" />
-			<jsp:include page="animalCRUD.jsp" />
+			<!-- button for smoochy zoo info  -->
+			<a href="/zooInfo" class="btn btn-primary">Learn More About Smoochy Zoo</a>
+
+			
 		</div>
 	</div>
-
+<%@  include file="bootstrapfooter.jsp"%>
 </body>
 </html>

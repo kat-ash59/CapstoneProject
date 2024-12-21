@@ -16,7 +16,6 @@ import com.skilldistillery.jpasmoochyzoo.entities.Category;
 import com.skilldistillery.jpasmoochyzoo.entities.Species;
 import com.skilldistillery.smoochyzoo.data.AnimalDAO;
 import com.skilldistillery.smoochyzoo.data.CategoryDAO;
-import com.skilldistillery.smoochyzoo.data.SpeciesDAO;
 
 
 
@@ -24,14 +23,10 @@ import com.skilldistillery.smoochyzoo.data.SpeciesDAO;
 public class AnimalController 
 {
 	private final AnimalDAO animalDAO;
-	private final SpeciesDAO speciesDAO;
-	private final CategoryDAO categoryDAO;
 	
 	
-	public AnimalController(AnimalDAO dao, SpeciesDAO speciesDAO, CategoryDAO categoryDAO)
+	public AnimalController(AnimalDAO dao)
 	{
-		this.speciesDAO = speciesDAO;
-		this.categoryDAO = categoryDAO;
 		this.animalDAO = dao;
 	}
 	

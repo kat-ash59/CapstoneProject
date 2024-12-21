@@ -33,8 +33,8 @@ public class Address {
 	@Column(name = "phone_number")
 	private String phoneNumber;
 
-	@Column(name = "isActive")
-	private Boolean isActive;
+	@Column(name = "isactive")
+	private Boolean active;
 
 	public Address() {
 	}
@@ -81,12 +81,13 @@ public class Address {
 	
 	
 
-	public Boolean getIsActive() {
-		return isActive;
+
+	public Boolean getActive() {
+		return active;
 	}
 
-	public void setIsActive(Boolean isActive) {
-		this.isActive = isActive;
+	public void setActive(Boolean active) {
+		this.active = active;
 	}
 
 	public String getPhoneNumber() {

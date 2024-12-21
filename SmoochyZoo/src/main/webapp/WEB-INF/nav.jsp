@@ -4,6 +4,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<%@  include file="bootstraphead.jsp"%>
+
 <style>
 .navbar {
 	background-color: rgba(255, 255, 255, 0.85);

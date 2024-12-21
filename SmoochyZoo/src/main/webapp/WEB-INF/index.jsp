@@ -38,6 +38,7 @@ body {
 			</p>
 			
 			<!-- button for smoochy zoo info  -->
+
 			<a href="zooInfo.do" class="btn btn-primary">Learn More About Smoochy Zoo</a>
 			
 		</div>

@@ -4,25 +4,29 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Member Login Screen</title>
+<%@  include file="bootstraphead.jsp"%>
+<style>
+body {
+	background-image: linear-gradient(rgba(255, 255, 255, 0.75),
+		rgba(255, 255, 255, 0.75)), url("images/SmoochyZoo.jpg");
+}
+</style>
 </head>
 <body>
-	<h1>Member Home - Smoochy Zoo</h1>
+<jsp:include page="nav.jsp" />
+<h1>Member Home - Smoochy Zoo</h1>
+    <p>You're logged in as a member. Here are your available options:</p>
+    <div>
+        <h2>You're login in as a member!</h2>
+        <jsp:include page="animalhome.jsp" />
+    </div>
 
-	<!-- starting code to get a base for these pages -->
+    <!-- Logout Button -->
+    <form action="logout.do" method="post">
+        <button type="submit">Logout</button>
+    </form>
+    <%@  include file="bootstrapfooter.jsp"%>
 
-
-	<p>You're logged in as a member. Here are your available options:</p>
-
-	<!-- Member-specific content -->
-	<div>
-		<h2>Your Membership Information</h2>
-		<!-- Provide options for members to view their membership details -->
-	</div>
-
-	<!-- Logout Button -->
-	<form action="logout.do" method="post">
-		<button type="submit">Logout</button>
-	</form>
 </body>
 </html>

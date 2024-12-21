@@ -46,6 +46,7 @@
 
 				</div>
 				<%--
+<%--
 				<div class="inner">
 				<form action="deleteHookOrNeedle.do">
 					<input type="hidden" id="id" name="id" value="${needleOrHook.id}" />

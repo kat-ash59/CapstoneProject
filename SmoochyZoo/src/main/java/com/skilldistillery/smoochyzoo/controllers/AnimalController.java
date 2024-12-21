@@ -115,7 +115,7 @@ public class AnimalController
 			{
 				animal.setSpecies(theAnimal.getSpecies());
 			}
-			
+			System.out.println("theAnimalSpeies " + theAnimal.getSpecies());
 			if (theAnimal.getMom() != null)
 			{
 				animal.setMom(theAnimal.getMom());

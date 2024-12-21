@@ -17,7 +17,7 @@
 		</div>
 		<div class="row">
 			<div id="outer">
-				<strong>Add an animal to our Smoochy Zoo</strong> <br> You will
+				<strong>Add an animal to become a new resident of our Smoochy Zoo</strong> <br> You will
 				be asked to enter the Animal's name, birthday, category, species,
 				and Gender. <br>
 				<div class="inner">

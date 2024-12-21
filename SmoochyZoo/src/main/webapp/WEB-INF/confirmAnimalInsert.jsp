@@ -9,6 +9,12 @@
 <meta charset="UTF-8">
 <title>Smoochy Zoo Animal</title>
 <%@  include file="bootstraphead.jsp"%>
+<style>
+body { 
+	background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)),
+                  url("images/SmoochyZoo.jpg");
+}
+</style>
 </head>
 <body>
 	<div class="container">

@@ -9,10 +9,16 @@
 <meta charset="UTF-8">
 <title>Smoochy Zoo's Animals</title>
 <%@  include file="bootstraphead.jsp"%>
+<style>
+body { 
+	background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)),
+                  url("images/underconstruct.jpg");
+}
+</style>
 </head>
 <body>
-	<h1>Welcome To Smoochy Zoo!</h1>
-
+	<br>
+	<br>
 	<strong>Get a list of all the animals in the Zoo</strong>
 	<br>
 	<br>

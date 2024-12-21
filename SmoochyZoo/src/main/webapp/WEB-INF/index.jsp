@@ -10,7 +10,7 @@
 <style>
 body { 
 	background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)),
-                  url("images/SmoochyZoo.jpg");
+                  url("images/underconstruct.jpg");
 }
 </style>
 </head>

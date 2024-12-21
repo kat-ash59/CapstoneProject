@@ -40,11 +40,18 @@ public class UserController {
 	@RequestMapping("index.do")
 	public String getHomePage(HttpSession session, Model model) {
 		User loggedInUser = (User) session.getAttribute("loggedInUser");
+		List<Category> categoryList = categoryDAO.findAllCategories();
+		List<Species> speciesList = speciesDAO.findAllSpecies();
+		model.addAttribute("speciesList", speciesList);
+		model.addAttribute("categoryList", categoryList);
+		
 	    if (loggedInUser != null) {
 	        // Redirect to the correct page based on the user's role
 	        if (loggedInUser.getRoles().stream().anyMatch(r -> r.getName().equals("keeper"))) {
+	        	
 	            return "redirect:staffHome.do";
 	        } else if (loggedInUser.getRoles().stream().anyMatch(r -> r.getName().equals("member"))) {
+	        	
 	            return "redirect:memberHome.do";
 	        }
 	    }
@@ -71,6 +78,11 @@ public class UserController {
 		// Find the user by username and password
 		User validUser = userDAO.getUserByUserNameAndPassword(username, password);
 
+		List<Category> categoryList = categoryDAO.findAllCategories();
+		List<Species> speciesList = speciesDAO.findAllSpecies();
+		model.addAttribute("speciesList", speciesList);
+		model.addAttribute("categoryList", categoryList);
+		
 		// If the user is found and enabled, proceed
 		if (validUser != null && validUser.getEnabled()) {
 			session.setAttribute("loggedInUser", validUser); // Store the user in the session
@@ -113,6 +125,10 @@ public class UserController {
             return "redirect:index.do"; // Redirect to homepage if not logged in or not member
         }
 
+        List<Category> categoryList = categoryDAO.findAllCategories();
+		List<Species> speciesList = speciesDAO.findAllSpecies();
+		model.addAttribute("speciesList", speciesList);
+		model.addAttribute("categoryList", categoryList);
         return "memberHome"; // Return member home JSP
 	}
 

@@ -10,8 +10,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.skilldistillery.jpasmoochyzoo.entities.Animal;
+import com.skilldistillery.jpasmoochyzoo.entities.Category;
+import com.skilldistillery.jpasmoochyzoo.entities.Species;
 import com.skilldistillery.jpasmoochyzoo.entities.User;
 import com.skilldistillery.smoochyzoo.data.AnimalDAO;
+import com.skilldistillery.smoochyzoo.data.CategoryDAO;
+import com.skilldistillery.smoochyzoo.data.SpeciesDAO;
 import com.skilldistillery.smoochyzoo.data.UserDAO;
 
 import jakarta.servlet.http.HttpSession;
@@ -21,11 +25,15 @@ public class UserController {
 
 	private UserDAO userDAO;
 	private AnimalDAO animalDAO;
+	private SpeciesDAO speciesDAO;
+	private CategoryDAO categoryDAO;
 
 	// Constructor injection for DAO
-	public UserController(UserDAO userDAO, AnimalDAO animalDAO) {
+	public UserController(UserDAO userDAO, AnimalDAO animalDAO, SpeciesDAO speciesDAO, CategoryDAO categoryDAO ) {
 		this.userDAO = userDAO;
 		this.animalDAO = animalDAO;
+		this.speciesDAO = speciesDAO;
+		this.categoryDAO = categoryDAO;
 	}
 
 	// Homepage with Login Form and Animal Info
@@ -45,10 +53,11 @@ public class UserController {
 		model.addAttribute("animals", animals);
 
 		// Return the home page
-		return "index";
+		return "redirect:index.do";
 	}
 
-	@RequestMapping("login.do")
+	
+	@GetMapping("login.do")
 	public String showLoginPage(@RequestParam("role") String role, Model model) {
 		model.addAttribute("role", role);
 		return "login";
@@ -76,7 +85,9 @@ public class UserController {
 
 		// If login fails, add an error message and return to login page
 		model.addAttribute("errorMessage", "Invalid username or password.");
-		return "index"; // Return to the login page
+
+		return "redirect:index.do"; // Return to the login page
+
 	}
 
 	@RequestMapping("staffHome.do")
@@ -87,6 +98,10 @@ public class UserController {
             return "redirect:index.do"; // Redirect to homepage if not logged in or not staff
         }
 
+		List<Category> categoryList = categoryDAO.findAllCategories();
+		List<Species> speciesList = speciesDAO.findAllSpecies();
+		model.addAttribute("speciesList", speciesList);
+		model.addAttribute("categoryList", categoryList);
         return "staffHome"; // Return staff home JSP
 	}
 

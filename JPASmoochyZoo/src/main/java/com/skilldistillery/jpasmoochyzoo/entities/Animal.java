@@ -28,7 +28,7 @@ public class Animal
 	private String gender;
 	
 	@Column(name="isactive")
-	private Boolean isActive = false;
+	private Boolean active = false;
 	
 
 	@ManyToOne
@@ -86,12 +86,15 @@ public class Animal
 		this.birthday = birthday;
 	}
 
-	public Boolean getIsActive() {
-		return isActive;
+
+
+
+	public Boolean getActive() {
+		return active;
 	}
 
-	public void setIsActive(Boolean isActive) {
-		this.isActive = isActive;
+	public void setActive(Boolean active) {
+		this.active = active;
 	}
 
 	public String getGender() {
@@ -107,17 +110,6 @@ public class Animal
 
 
 
-
-	public Boolean isActive() {
-		return isActive;
-	}
-
-
-
-
-	public void setActive(Boolean isActive) {
-		this.isActive = isActive;
-	}
 
 
 
@@ -192,12 +184,6 @@ public class Animal
 
 
 	@Override
-	public String toString() {
-		return "Animal [id=" + id + ", name=" + name + ", birthday=" + birthday + ", gender=" + gender + ", isActive="
-				+ isActive + ", mom=" + mom + ", dad=" + dad + "]";
-	}
-
-	@Override
 	public int hashCode() {
 		return Objects.hash(id);
 	}
@@ -214,6 +200,7 @@ public class Animal
 		Animal other = (Animal) obj;
 		return id == other.id;
 	}
+
 
 	
 	

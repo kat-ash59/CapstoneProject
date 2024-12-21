@@ -133,7 +133,7 @@ public class AnimalDAOImpl implements AnimalDAO
 			updatedAnimal.setDad(animal.getDad());
 		}
 		
-		if (animal.isActive() == true)
+		if (animal.getActive() == true)
 		{
 			updatedAnimal.setActive(true);
 		}

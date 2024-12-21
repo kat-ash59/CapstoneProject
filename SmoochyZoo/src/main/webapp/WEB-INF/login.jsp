@@ -6,9 +6,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Login</title>
- <%@ include file="bootstraphead.jsp" %>
+<%@ include file="bootstraphead.jsp"%>
+<style>
+body {
+	background-image: linear-gradient(rgba(255, 255, 255, 0.75),
+		rgba(255, 255, 255, 0.75)), url("images/SmoochyZoo.jpg");
+}
+</style>
 </head>
 <body>
+	<jsp:include page="nav.jsp" />
 	<div class="container">
 		<h2>Login to Smoochy Zoo</h2>
 
@@ -45,7 +52,8 @@
 		</form>
 
 	</div>
-	<%@ include file="bootstrapfooter.jsp" %>
-	
+
+	<%@ include file="bootstrapfooter.jsp"%>
+
 </body>
 </html>

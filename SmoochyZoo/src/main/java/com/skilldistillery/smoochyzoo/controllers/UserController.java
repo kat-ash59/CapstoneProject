@@ -10,8 +10,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.skilldistillery.jpasmoochyzoo.entities.Animal;
+import com.skilldistillery.jpasmoochyzoo.entities.Category;
+import com.skilldistillery.jpasmoochyzoo.entities.Species;
 import com.skilldistillery.jpasmoochyzoo.entities.User;
 import com.skilldistillery.smoochyzoo.data.AnimalDAO;
+import com.skilldistillery.smoochyzoo.data.CategoryDAO;
+import com.skilldistillery.smoochyzoo.data.SpeciesDAO;
 import com.skilldistillery.smoochyzoo.data.UserDAO;
 
 import jakarta.servlet.http.HttpSession;
@@ -21,11 +25,15 @@ public class UserController {
 
 	private UserDAO userDAO;
 	private AnimalDAO animalDAO;
+	private final SpeciesDAO speciesDAO;
+	private final CategoryDAO categoryDAO;
 
 	// Constructor injection for DAO
-	public UserController(UserDAO userDAO, AnimalDAO animalDAO) {
+	public UserController(UserDAO userDAO, AnimalDAO animalDAO, SpeciesDAO speciesDAO, CategoryDAO categoryDAO ) {
 		this.userDAO = userDAO;
 		this.animalDAO = animalDAO;
+		this.speciesDAO = speciesDAO; 
+		this.categoryDAO = categoryDAO; 
 	}
 
 	// Homepage with Login Form and Animal Info
@@ -68,8 +76,16 @@ public class UserController {
 
 			// Check user role and redirect accordingly
 			if (validUser.getRoles().stream().anyMatch(r -> r.getName().equals("keeper"))) {
+				List<Category> categoryList = categoryDAO.findAllCategories();
+				List<Species> speciesList = speciesDAO.findAllSpecies();
+				model.addAttribute("speciesList", speciesList);
+				model.addAttribute("categoryList", categoryList);
 				return "redirect:staffHome.do"; // Redirect to the staff home page
 			} else if (validUser.getRoles().stream().anyMatch(r -> r.getName().equals("member"))) {
+				List<Category> categoryList = categoryDAO.findAllCategories();
+				List<Species> speciesList = speciesDAO.findAllSpecies();
+				model.addAttribute("speciesList", speciesList);
+				model.addAttribute("categoryList", categoryList);
 				return "redirect:memberHome.do"; // Redirect to the member home page
 			}
 		}

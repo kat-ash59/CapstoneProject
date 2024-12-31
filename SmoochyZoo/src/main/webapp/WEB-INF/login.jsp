@@ -7,16 +7,13 @@
 <meta charset="UTF-8">
 <title>Login</title>
 <%@ include file="bootstraphead.jsp"%>
-<style>
-body {
-	background-image: linear-gradient(rgba(255, 255, 255, 0.75),
-		rgba(255, 255, 255, 0.75)), url("images/SmoochyZoo.jpg");
-}
-</style>
+<link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 	<jsp:include page="nav.jsp" />
+	
 	<div class="container">
+	
 		<h2>Login to Smoochy Zoo</h2>
 
 		<c:if test="${not empty errorMessage}">
@@ -52,6 +49,7 @@ body {
 		</form>
 
 	</div>
+
 	<%@ include file="bootstrapfooter.jsp"%>
 
 </body>

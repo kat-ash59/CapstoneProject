@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
-<%@ taglib uri="jakarta.tags.core" prefix="c" %>
+	pageEncoding="UTF-8"%>
+
+<%@ taglib uri="jakarta.tags.core" prefix="c"%>
 
 <!DOCTYPE html>
 <html>
@@ -10,9 +10,9 @@
 <title>Smoochy Zoo's Animal</title>
 <%@  include file="bootstraphead.jsp"%>
 <style>
-body { 
-	background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)),
-                  url("images/MaleandFemaleLions.png");
+body {
+	background-image: linear-gradient(rgba(255, 255, 255, 0.75),
+		rgba(255, 255, 255, 0.75)), url("images/MaleandFemaleLions.png");
 }
 </style>
 </head>
@@ -28,37 +28,39 @@ body {
 						 	<c:choose>
 						 		<c:when test="${animal.birthday == null }">
 						 			Birthday: No Information about the Animal's Birthday<br>
-						 		</c:when>
-						 		<c:otherwise>
+							</c:when>
+							<c:otherwise>
 						 			Birthday: ${animal.birthday }<br>
-						 		</c:otherwise>
-						 	</c:choose>
-						 	Gender: ${animal.gender }<br>
-						 	<c:choose>
-						 		<c:when test="${animal.mom == null }">
+							</c:otherwise>
+						</c:choose>
+						Gender: ${animal.gender }<br>
+						<c:choose>
+							<c:when test="${animal.mom == null }">
 						 			Mom: No Information about the Animal's Mom<br>
-						 		</c:when>
-						 		<c:otherwise>
+							</c:when>
+							<c:otherwise>
 						 			Mom: ${animal.mom.name }<br>
-						 		</c:otherwise>
-						 	</c:choose>
-						 	<c:choose>
-						 		<c:when test="${animal.dad == null }">
+							</c:otherwise>
+						</c:choose>
+						<c:choose>
+							<c:when test="${animal.dad == null }">
 						 			Dad: No Information about the Animal's Dad<br>
-						 		</c:when>
-						 		<c:otherwise>
+							</c:when>
+							<c:otherwise>
 						 			Dad: ${animal.dad.name }<br>
-						 		</c:otherwise>
-						 	</c:choose>
-		  		
-		  	</h5>
-	 	</c:when>
-	 	<c:otherwise>
-	 			<h3>Animal not found!</h3>
-	 	</c:otherwise>
-	 </c:choose>
-</div>
-</div>
+
+							</c:otherwise>
+						</c:choose>
+
+					</h5>
+				</c:when>
+				<c:otherwise>
+					<h3>Animal not found!</h3>
+				</c:otherwise>
+			</c:choose>
+		</div>
+	</div>
 <%@  include file="bootstrapfooter.jsp"%>
+
 </body>
 </html>

@@ -35,7 +35,7 @@ body {
 			<h3>Zoo Programs</h3>
 
 			<p>Animal Caretaker for a Day</p>
-			<p>Wildpfe Conservation Talks</p>
+			<p>Wildlife Conservation Talks</p>
 			<p>Zoo Tours for Schools</p>
 
 			<h3>Come Give us a visit!</h3>

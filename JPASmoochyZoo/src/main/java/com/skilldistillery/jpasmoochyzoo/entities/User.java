@@ -41,8 +41,8 @@ public class User {
 	@JoinColumn(name = "address_id")
 	private Address address;
 
-	@Column(name = "isActive")
-	private Boolean isActive;
+	@Column(name = "isactive")
+	private Boolean isactive;
 
 	@Column(name = "email")
 	private String email;
@@ -118,12 +118,14 @@ public class User {
 		this.address = address;
 	}
 
-	public Boolean getIsActive() {
-		return isActive;
+
+
+	public Boolean getIsactive() {
+		return isactive;
 	}
 
-	public void setIsActive(Boolean isActive) {
-		this.isActive = isActive;
+	public void setIsactive(Boolean isactive) {
+		this.isactive = isactive;
 	}
 
 	public String getEmail() {
@@ -151,11 +153,6 @@ public class User {
 		return id == other.id;
 	}
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled
-				+ ", aboutMe=" + aboutMe + ", privacyCheck=" + privacyCheck + ", address=" + address + ", isActive="
-				+ isActive + ", email=" + email + "]";
-	}
-
+	
+	
 }

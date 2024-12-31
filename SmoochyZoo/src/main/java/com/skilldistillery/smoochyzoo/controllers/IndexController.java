@@ -37,4 +37,9 @@ public class IndexController
 			return "index";
 		}
 		
+		@GetMapping(path={"zooInfo.do"})
+		public String info(Model model) 
+		{
+			return "zooInfo";
+		}
 }

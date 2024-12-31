@@ -7,10 +7,7 @@
 <title>Staff Home - Smoochy Zoo</title>
 <%@  include file="bootstraphead.jsp"%>
 <style>
-body {
-	background-image: linear-gradient(rgba(255, 255, 255, 0.75),
-		rgba(255, 255, 255, 0.75)), url("images/SmoochyZoo.jpg");
-}
+
 </style>
 </head>
 <body>
@@ -21,6 +18,9 @@ body {
 
 	<p>You're logged in as a staff member. Here are your available
 		options:</p>
+
+
+	<!-- Staff-specific content -->
 	<div>
 		<h2>Animal Care Information</h2>
 		<!-- Provide options for staff to manage animals, schedules, etc. -->
@@ -29,10 +29,13 @@ body {
 		<jsp:include page="animalCRUD.jsp" />
 	</div>
 
+
 	<!-- Logout Button -->
 	<form action="logout.do" method="post">
 		<button type="submit">Logout</button>
 	</form>
+
 	<%@  include file="bootstrapfooter.jsp"%>
+
 </body>
 </html>

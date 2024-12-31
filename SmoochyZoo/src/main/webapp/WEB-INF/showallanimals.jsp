@@ -1,16 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 
-<%@ taglib uri="jakarta.tags.core" prefix="c" %>    
-  
+<%@ taglib uri="jakarta.tags.core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Smoochy Zoo's Animals</title>
-<%@  include file="bootstraphead.jsp" %>
+<%@  include file="bootstraphead.jsp"%>
 </head>
 <body>
+
 <div class="container">
 	
 	<div class="row">
@@ -54,15 +55,15 @@
 						 			<td>${animal.dad.name }</td>
 						 		</c:otherwise>
 						 	</c:choose>
-						</tr>
-					</c:forEach>
-				</table>
-		 	</c:when>
-		 	<c:otherwise>
-		 			<h3>No animals were found!</h3>
-		 	</c:otherwise>
-		 </c:choose>
+							</tr>
+						</c:forEach>
+					</table>
+				</c:when>
+				<c:otherwise>
+					<h3>No animals were found!</h3>
+				</c:otherwise>
+			</c:choose>
+		</div>
 	</div>
-</div>
 </body>
 </html>

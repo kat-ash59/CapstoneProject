@@ -38,8 +38,8 @@ body {
 			</p>
 			
 			<!-- button for smoochy zoo info  -->
-			<a href="/zooInfo" class="btn btn-primary">Learn More About Smoochy Zoo</a>
 
+			<a href="zooInfo.do" class="btn btn-primary">Learn More About Smoochy Zoo</a>
 			
 		</div>
 	</div>

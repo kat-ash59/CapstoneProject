@@ -1,12 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@ taglib uri="jakarta.tags.core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
 <%@  include file="bootstraphead.jsp"%>
+
 <style>
 .navbar {
 	background-color: rgba(255, 255, 255, 0.85);
@@ -49,5 +49,6 @@
 	</nav>
 
 	<%@  include file="bootstrapfooter.jsp"%>
+
 </body>
 </html>
